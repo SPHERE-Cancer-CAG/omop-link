@@ -71,7 +71,8 @@ instance/
 
 # Scrapy stuff:
 .scrapy
-
+gh-pages
+gh-pages.pub
 # Sphinx documentation
 docs/_build/
 
