@@ -14,14 +14,14 @@ else
 include config.public.mk
 endif
 
-RUN = poetry run
+RUN = uv run
 SCHEMA_NAME = $(LINKML_SCHEMA_NAME)
 SOURCE_SCHEMA_PATH = $(LINKML_SCHEMA_SOURCE_PATH)
 SOURCE_SCHEMA_DIR = $(dir $(SOURCE_SCHEMA_PATH))
 SRC = src
 DEST = project
 PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
-DOCDIR = docs
+DOCDIR = docs/schemas
 DOCTEMPLATES = $(SRC)/docs/templates
 EXAMPLEDIR = examples
 SHEET_MODULE = $(LINKML_SCHEMA_GOOGLE_SHEET_MODULE)
@@ -84,7 +84,7 @@ setup: check-config git-init install gen-project gen-examples gendoc git-add git
 
 # install any dependencies required for building
 install:
-	poetry install
+	uv install
 .PHONY: install
 
 # ---
@@ -104,7 +104,7 @@ update-template:
 
 # todo: consider pinning to template
 update-linkml:
-	poetry add -D linkml@latest
+	uv add -D linkml@latest
 
 # EXPERIMENTAL
 create-data-harmonizer:
