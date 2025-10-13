@@ -2,7 +2,7 @@
 
 LinkML version of OMOP CDM including OMOP-tuned convention enforcement
 
-![Automated documentation build](https://github.com/github/docs/actions/workflows/deploy-docs.yml/badge.svg)
+![Automated documentation build](https://github.com/SPHERE-Cancer-CAG/omop-link/actions/workflows/deploy-docs.yml/badge.svg)
 
 ## Website
 
