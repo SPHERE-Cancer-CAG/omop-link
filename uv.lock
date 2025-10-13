@@ -3176,6 +3176,7 @@ name = "omop-cdm"
 source = { editable = "." }
 dependencies = [
     { name = "linkml-runtime" },
+    { name = "sphinxcontrib-programoutput" },
 ]
 
 [package.dev-dependencies]
@@ -3266,7 +3267,10 @@ typing = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "linkml-runtime", specifier = ">=1.1.24" }]
+requires-dist = [
+    { name = "linkml-runtime", specifier = ">=1.1.24" },
+    { name = "sphinxcontrib-programoutput", specifier = ">=0.18" },
+]
 
 [package.metadata.requires-dev]
 dev = [
