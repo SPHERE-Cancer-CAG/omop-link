@@ -1,5 +1,0 @@
-# omop-cdm 
-
-LinkML version of OMOP CDM including OMOP-tuned convention enforcement
-
-URI: https://w3id.org/SPHERE-Cancer-CAG/omop-cdm
