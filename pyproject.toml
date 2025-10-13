@@ -20,6 +20,7 @@ dependencies = [
   "linkml-runtime >=1.1.24",
   "poetry-dynamic-versioning>=1.9.1",
   "sphinxcontrib-programoutput>=0.18",
+  "sphinx-jinja (>=2.0.2,<3.0.0)",
 ]
 
 [tool.poetry]

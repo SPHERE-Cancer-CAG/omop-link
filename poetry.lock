@@ -4321,6 +4321,23 @@ docs = ["reno"]
 test = ["pytest", "pytest-cov"]
 
 [[package]]
+name = "sphinx-jinja"
+version = "2.0.2"
+description = "includes jinja templates in a documentation"
+optional = false
+python-versions = ">=3.6,<4"
+groups = ["main"]
+files = [
+    {file = "sphinx-jinja-2.0.2.tar.gz", hash = "sha256:c6232b59a894139770be1dc6d0b00a379e4288ce78157904e1f8473dea3e0718"},
+    {file = "sphinx_jinja-2.0.2-py3-none-any.whl", hash = "sha256:705ebeb9b7a6018ca3f93724315a7c1effa6ba3db44d630e7eaaa15e4ac081a8"},
+]
+
+[package.dependencies]
+docutils = ">=0.16"
+Jinja2 = ">=2.11"
+sphinx = ">4.2.0"
+
+[[package]]
 name = "sphinxcontrib-applehelp"
 version = "2.0.0"
 description = "sphinxcontrib-applehelp is a Sphinx extension which outputs Apple help books"
@@ -5057,4 +5074,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.9,<4.0"
-content-hash = "dcb93c7da29a9f7a4843f52e3653d7eb253ade0b3b16829f7ce4a7010e9b8b1d"
+content-hash = "7d5be7164a6ac607fe4329c45993975a0147f8e3277a390d8e8b5b90ad6e1b8c"
