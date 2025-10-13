@@ -1,6 +1,3 @@
-# Built from:
-# https://docs.github.com/en/actions/guides/building-and-testing-python
----
 name: Build and test omop_cdm
 env:
   UV_VERSION: "0.7.13"
@@ -13,7 +10,7 @@ on:
 
 
 jobs:
-  test:
+  quality-checks:
 
     runs-on: ubuntu-latest
     strategy:
