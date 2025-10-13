@@ -834,6 +834,21 @@ files = [
 ]
 
 [[package]]
+name = "dunamai"
+version = "1.25.0"
+description = "Dynamic version generation"
+optional = false
+python-versions = ">=3.5"
+groups = ["main"]
+files = [
+    {file = "dunamai-1.25.0-py3-none-any.whl", hash = "sha256:7f9dc687dd3256e613b6cc978d9daabfd2bb5deb8adc541fc135ee423ffa98ab"},
+    {file = "dunamai-1.25.0.tar.gz", hash = "sha256:a7f8360ea286d3dbaf0b6a1473f9253280ac93d619836ad4514facb70c0719d1"},
+]
+
+[package.dependencies]
+packaging = ">=20.9"
+
+[[package]]
 name = "editorconfig"
 version = "0.17.1"
 description = "EditorConfig File Locator and Interpreter for Python"
@@ -2804,6 +2819,26 @@ dev = ["pre-commit", "tox"]
 testing = ["coverage", "pytest", "pytest-benchmark"]
 
 [[package]]
+name = "poetry-dynamic-versioning"
+version = "1.9.1"
+description = "Plugin for Poetry to enable dynamic versioning based on VCS tags"
+optional = false
+python-versions = "<4.0,>=3.7"
+groups = ["main"]
+files = [
+    {file = "poetry_dynamic_versioning-1.9.1-py3-none-any.whl", hash = "sha256:65a0c814e6d30d4807734a3c34edf261fd7cc3b340dbd23b6a33ee41f7d0b547"},
+    {file = "poetry_dynamic_versioning-1.9.1.tar.gz", hash = "sha256:d6e7b9df817aa2ca4946cd695c6c89e1379d2e6c640f008a9b6170d081a9da48"},
+]
+
+[package.dependencies]
+dunamai = ">=1.25.0,<2.0.0"
+jinja2 = ">=2.11.1,<4"
+tomlkit = ">=0.4"
+
+[package.extras]
+plugin = ["poetry (>=1.2.0)"]
+
+[[package]]
 name = "prefixcommons"
 version = "0.1.12"
 description = "A python API for working with ID prefixes"
@@ -4644,6 +4679,18 @@ files = [
 ]
 
 [[package]]
+name = "tomlkit"
+version = "0.13.3"
+description = "Style preserving TOML library"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "tomlkit-0.13.3-py3-none-any.whl", hash = "sha256:c89c649d79ee40629a9fda55f8ace8c6a1b42deb912b2a8fd8d942ddadb606b0"},
+    {file = "tomlkit-0.13.3.tar.gz", hash = "sha256:430cf247ee57df2b94ee3fbe588e71d362a941ebb545dec29b53961d61add2a1"},
+]
+
+[[package]]
 name = "tornado"
 version = "6.5.2"
 description = "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed."
@@ -5010,4 +5057,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.9,<4.0"
-content-hash = "c7ae5c4614ec0770f15b154c2991a5f5d91e9edfa48f11a7b00d2600918c1d99"
+content-hash = "dcb93c7da29a9f7a4843f52e3653d7eb253ade0b3b16829f7ce4a7010e9b8b1d"
