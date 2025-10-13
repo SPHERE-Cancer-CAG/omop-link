@@ -1,0 +1,54 @@
+OMOP-CDM LinkML Model Documentation
+===================================
+
+# OMOP CDM Schema
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Classes
+
+   NamedThing.md
+   Person.md
+   PersonCollection.md
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Slots
+
+   id.md
+   name.md
+   primary_email.md
+   birth_date.md
+   age_in_years.md
+   vital_status.md
+   entries.md
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Enums
+
+   PersonStatus.md
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Types
+
+   String.md
+   Integer.md
+   Boolean.md
+   Float.md
+   Double.md
+   Decimal.md
+   Date.md
+   Datetime.md
+   DateOrDatetime.md
+   Time.md
+   Uri.md
+   Curie.md
+   Uriorcurie.md
+   Ncname.md
+   Objectidentifier.md
+   Nodeidentifier.md
+   Jsonpointer.md
+   Jsonpath.md
+   Sparqlpath.md
