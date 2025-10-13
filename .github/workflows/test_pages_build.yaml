@@ -45,21 +45,3 @@ jobs:
         env:
           SPHINXOPTS: "-W --keep-going"
         run: uv run make html
-
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: docs
-          path: docs/build/html/
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build-docs
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
