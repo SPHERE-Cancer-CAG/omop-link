@@ -44,3 +44,9 @@ jobs:
         env:
           SPHINXOPTS: "-W --keep-going"
         run: uv run make html
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
+        with:
+          branch: gh-pages         # optional: default is gh-pages
+          folder: docs/build/html  # <-- THIS is the folder to deploy
