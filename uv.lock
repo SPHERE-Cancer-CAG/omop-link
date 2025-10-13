@@ -3189,6 +3189,7 @@ source = { editable = "." }
 dependencies = [
     { name = "linkml-runtime" },
     { name = "poetry-dynamic-versioning" },
+    { name = "sphinx-jinja" },
     { name = "sphinxcontrib-programoutput" },
 ]
 
@@ -3282,6 +3283,7 @@ typing = [
 requires-dist = [
     { name = "linkml-runtime", specifier = ">=1.1.24" },
     { name = "poetry-dynamic-versioning", specifier = ">=1.9.1" },
+    { name = "sphinx-jinja", specifier = ">=2.0.2,<3.0.0" },
     { name = "sphinxcontrib-programoutput", specifier = ">=0.18" },
 ]
 
