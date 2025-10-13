@@ -584,7 +584,7 @@
   "source_file": "omop_cdm.yaml",
   "source_file_date": "2025-10-13T12:41:12",
   "source_file_size": 2228,
-  "generation_date": "2025-10-13T13:13:59",
+  "generation_date": "2025-10-13T13:43:43",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/omop_cdm.context.jsonld",

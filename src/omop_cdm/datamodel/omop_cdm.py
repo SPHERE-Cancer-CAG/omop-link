@@ -1,5 +1,5 @@
 # Auto generated from omop_cdm.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-10-13T13:13:59
+# Generation date: 2025-10-13T13:43:44
 # Schema: omop-cdm
 #
 # id: https://w3id.org/SPHERE-Cancer-CAG/omop-cdm

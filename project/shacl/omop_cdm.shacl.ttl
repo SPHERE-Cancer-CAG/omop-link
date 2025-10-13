@@ -8,25 +8,25 @@
 schema1:Thing a sh:NodeShape ;
     sh:closed true ;
     sh:description "A generic grouping for any identifiable entity" ;
-    sh:ignoredProperties ( omop_cdm:age_in_years rdf:type omop_cdm:vital_status schema1:email schema1:birthDate ) ;
+    sh:ignoredProperties ( omop_cdm:age_in_years schema1:email rdf:type omop_cdm:vital_status schema1:birthDate ) ;
     sh:property [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path schema1:name ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path schema1:description ] ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:identifier ] ;
     sh:targetClass schema1:Thing .
 
 omop_cdm:PersonCollection a sh:NodeShape ;
@@ -43,12 +43,12 @@ omop_cdm:Person a sh:NodeShape ;
     sh:closed true ;
     sh:description "Represents a Person" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Number of years since birth" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path schema1:name ],
+            sh:order 2 ;
+            sh:path omop_cdm:age_in_years ],
         [ sh:datatype xsd:anyURI ;
             sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
@@ -57,34 +57,34 @@ omop_cdm:Person a sh:NodeShape ;
             sh:order 4 ;
             sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Number of years since birth" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path omop_cdm:age_in_years ],
-        [ sh:description "living or dead status" ;
-            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path omop_cdm:vital_status ],
-        [ sh:datatype xsd:string ;
             sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path schema1:email ;
             sh:pattern "^\\S+@[\\S+\\.]+\\S+" ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:description ],
         [ sh:datatype xsd:date ;
             sh:description "Date on which a person is born" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path schema1:birthDate ] ;
+            sh:path schema1:birthDate ],
+        [ sh:description "living or dead status" ;
+            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path omop_cdm:vital_status ] ;
     sh:targetClass omop_cdm:Person .
 

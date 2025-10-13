@@ -13,10 +13,10 @@ omop_cdm:PersonCollection a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "PersonCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom omop_cdm:Person ;
             owl:onProperty omop_cdm:entries ],
         [ a owl:Restriction ;
-            owl:allValuesFrom omop_cdm:Person ;
+            owl:minCardinality 0 ;
             owl:onProperty omop_cdm:entries ] ;
     skos:definition "A holder for Person objects" ;
     skos:inScheme <https://w3id.org/SPHERE-Cancer-CAG/omop-cdm> .
@@ -25,17 +25,14 @@ omop_cdm:NamedThing a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedThing" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty omop_cdm:description ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty omop_cdm:name ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty omop_cdm:description ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty omop_cdm:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty omop_cdm:description ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty omop_cdm:id ],
@@ -46,8 +43,11 @@ omop_cdm:NamedThing a owl:Class,
             owl:maxCardinality 1 ;
             owl:onProperty omop_cdm:id ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:maxCardinality 1 ;
             owl:onProperty omop_cdm:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty omop_cdm:name ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty omop_cdm:name ] ;
@@ -59,43 +59,43 @@ omop_cdm:Person a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Person" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty omop_cdm:vital_status ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty omop_cdm:primary_email ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty omop_cdm:age_in_years ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty omop_cdm:primary_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty omop_cdm:birth_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom omop_cdm:PersonStatus ;
             owl:onProperty omop_cdm:vital_status ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty omop_cdm:age_in_years ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:Integer ;
             owl:onProperty omop_cdm:age_in_years ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty omop_cdm:birth_date ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty omop_cdm:age_in_years ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty omop_cdm:primary_email ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Date ;
+            owl:onProperty omop_cdm:birth_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:onDatatype xsd:string ;
                     owl:withRestrictions ( [ xsd:pattern "^\\S+@[\\S+\\.]+\\S+" ] ) ] ;
             owl:onProperty omop_cdm:primary_email ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty omop_cdm:vital_status ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty omop_cdm:birth_date ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Date ;
-            owl:onProperty omop_cdm:birth_date ],
+            owl:minCardinality 0 ;
+            owl:onProperty omop_cdm:age_in_years ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty omop_cdm:primary_email ],
         omop_cdm:NamedThing ;
     skos:definition "Represents a Person" ;
     skos:inScheme <https://w3id.org/SPHERE-Cancer-CAG/omop-cdm> .
