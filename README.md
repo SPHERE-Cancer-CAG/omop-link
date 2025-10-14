@@ -6,7 +6,9 @@ LinkML version of OMOP CDM including OMOP-tuned convention enforcement
 
 ## Website
 
-[https://SPHERE-Cancer-CAG.github.io/omop-cdm](https://SPHERE-Cancer-CAG.github.io/omop-cdm)
+[https://sphere-cancer-cag.github.io/omop-link/](https://sphere-cancer-cag.github.io/omop-link/)
+
+
 
 ## Repository Structure
 
