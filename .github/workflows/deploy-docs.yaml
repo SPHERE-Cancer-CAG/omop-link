@@ -40,13 +40,20 @@ jobs:
       #   env:
       #     SPHINXOPTS: "-W --keep-going"
       #   run: uv run make html
+
+      - name: List site
+        run: ls -R site
+      - name: List docs
+        run: ls -R docs
       - name: Build docs
         working-directory: .
         env:
           SPHINXOPTS: "-W --keep-going"
         run: uv run make deploy
+      - name: List built site
+        run: ls -R site
       - name: List built docs
-        run: ls -R .
+        run: ls -R docs
       - name: Check what site/build/html contains
         run: ls -R site/build/html || echo "NOT FOUND"
       - name: GitHub Pages action
