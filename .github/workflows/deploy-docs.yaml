@@ -41,8 +41,6 @@ jobs:
       #     SPHINXOPTS: "-W --keep-going"
       #   run: uv run make html
 
-      - name: List site
-        run: ls -R site
       - name: List docs
         run: ls -R docs
       - name: Build docs
