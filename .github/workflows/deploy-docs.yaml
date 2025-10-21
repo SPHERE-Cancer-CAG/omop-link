@@ -35,11 +35,16 @@ jobs:
       - name: Install dependencies
         run: uv sync --group docs --group lint
 
+      # - name: Build docs
+      #   working-directory: docs
+      #   env:
+      #     SPHINXOPTS: "-W --keep-going"
+      #   run: uv run make html
       - name: Build docs
-        working-directory: docs
+        working-directory: .
         env:
           SPHINXOPTS: "-W --keep-going"
-        run: uv run make html
+        run: make deploy
 
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4.0.0
@@ -47,6 +52,6 @@ jobs:
           #deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./docs/build/html
+          publish_dir: ./site/build/html
           allow_empty_commit: true
           verbose: true

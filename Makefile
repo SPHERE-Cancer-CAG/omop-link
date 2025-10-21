@@ -110,10 +110,14 @@ update-linkml:
 create-data-harmonizer:
 	npm init data-harmonizer $(SOURCE_SCHEMA_PATH)
 
+mkd: 
+	mkdocs build
+
+
 all: site
 site: gen-project gendoc
 %.yaml: gen-project
-deploy: all mkd-gh-deploy
+deploy: all mkd #mkd-gh-deploy
 
 compile-sheets:
 	$(RUN) sheets2linkml --gsheet-id $(SHEET_ID) $(SHEET_TABS) > $(SHEET_MODULE_PATH).tmp && mv $(SHEET_MODULE_PATH).tmp $(SHEET_MODULE_PATH)
