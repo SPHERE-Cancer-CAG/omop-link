@@ -44,7 +44,7 @@ jobs:
         working-directory: .
         env:
           SPHINXOPTS: "-W --keep-going"
-        run: make deploy
+        run: uv run make deploy
 
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4.0.0
