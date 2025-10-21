@@ -1,75 +1,52 @@
-# ---
-# name: Auto-deployment of omop_cdm Documentation
-# on:
-#   push:
-#     branches: [main]
+---
+name: Auto-deployment of omop_cdm Documentation
+on:
+  push:
+    branches: [main]
 
-# jobs:
-#   build-docs:
-#     runs-on: ubuntu-latest
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
 
-#     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-#     permissions:
-#       contents: write  # to let mkdocs write the new docs
-#       pages: write     # to deploy to Pages
-#       id-token: write  # to verify the deployment originates from an appropriate source
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      contents: write  # to let mkdocs write the new docs
+      pages: write     # to deploy to Pages
+      id-token: write  # to verify the deployment originates from an appropriate source
 
-#     steps:
+    steps:
 
-#       - name: Check out repository
-#         uses: actions/checkout@v5.0.0
-#         with:
-#           fetch-depth: 0
+      - name: Check out repository
+        uses: actions/checkout@v5.0.0
+        with:
+          fetch-depth: 0
 
-#       - name: Install uv
-#         uses: astral-sh/setup-uv@v6.6.1
-#         with:
-#           version: ${{ env.UV_VERSION }}
-#           enable-cache: true
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6.6.1
+        with:
+          version: ${{ env.UV_VERSION }}
+          enable-cache: true
 
-#       - name: Set up Python ${{ matrix.python-version }}
-#         uses: actions/setup-python@v6.0.0
-#         id: setup-python
-#         with:
-#           python-version: '3.12'
-#       #----------------------------------------------
-#       # install dependencies
-#       #----------------------------------------------
-#       - name: Install dependencies
-#         run: uv sync --group docs --group lint
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v6.0.0
+        id: setup-python
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: uv sync --group docs --group lint
 
-#       - name: Build docs
-#         working-directory: docs
-#         env:
-#           SPHINXOPTS: "-W --keep-going"
-#         run: uv run make html
+      - name: Build docs
+        working-directory: docs
+        env:
+          SPHINXOPTS: "-W --keep-going"
+        run: uv run make html
 
-#       # - name: Upload artifact
-#       #   uses: actions/upload-artifact@v4
-#       #   with:
-#       #     name: github-pages
-#       #     path: docs/build/html/
-
-#       - name: GitHub Pages action
-#         uses: peaceiris/actions-gh-pages@v4.0.0
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: docs/build/html
-
-#   # deploy:
-#   #   runs-on: ubuntu-latest
-
-#   #   # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-#   #   permissions:
-#   #     contents: write  # to let mkdocs write the new docs
-#   #     pages: write     # to deploy to Pages
-#   #     id-token: write  # to verify the deployment originates from an appropriate source
-
-#   #   environment:
-#   #     name: github-pages
-#   #     url: ${{ steps.deployment.outputs.page_url }}
-#   #   needs: build-docs
-#   #   steps:
-#   #     - name: Deploy to GitHub Pages
-#   #       id: deployment
-#   #       uses: actions/deploy-pages@v4
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          #deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./docs/build/html
+          allow_empty_commit: true
+          verbose: true
