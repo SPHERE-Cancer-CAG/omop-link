@@ -7,10 +7,10 @@
 ###### schema definition variables, used by makefile
 
 # Note: makefile variables should not be quoted, as makefile handles quoting differently than bash
-LINKML_SCHEMA_NAME="omop_cdm"
+LINKML_SCHEMA_NAME=cdm_vocabulary#"omop_cdm"
 LINKML_SCHEMA_AUTHOR="Georgie Kennedy <my-name@my-org.org>"
 LINKML_SCHEMA_DESCRIPTION="LinkML version of OMOP CDM including OMOP-tuned convention enforcement"
-LINKML_SCHEMA_SOURCE_PATH="src/omop_cdm/schema/omop_cdm.yaml"
+LINKML_SCHEMA_SOURCE_PATH="src/cdm_vocabulary/schema/cdm_vocabulary.yaml"#omop_cdm.yaml"
 LINKML_SCHEMA_GOOGLE_SHEET_MODULE="personinfo_enums"
 LINKML_SCHEMA_GOOGLE_SHEET_ID="1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ"
 LINKML_SCHEMA_GOOGLE_SHEET_TABS="personinfo enums"

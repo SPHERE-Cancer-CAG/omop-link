@@ -1,0 +1,189 @@
+id: https://athena.ohdsi.org/search-terms/terms#concept
+name: concept
+title: OMOP CDM Concept
+description: >-
+  Template for OMOP CDM Concept class, which represents a concept record in the OMOP Common Data Model.
+license: https://creativecommons.org/publicdomain/zero/1.0/
+prefixes:
+  linkml: https://w3id.org/linkml/
+  omop: https://athena.ohdsi.org/search-terms/terms#
+  owl: "http://www.w3.org/2002/07/owl#"
+  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+imports:
+  - linkml:types
+
+classes:
+  Concept:
+    description: >-
+      The Standardized Vocabularies contains records, or Concepts, that uniquely identify each fundamental unit of meaning used to express clinical information in all domain tables of the CDM. 
+      Concepts are derived from vocabularies, which represent clinical information across a domain (e.g. conditions, drugs, procedures) through the use of codes and associated descriptions. 
+      Some Concepts are designated Standard Concepts, meaning these Concepts can be used as normative expressions of a clinical entity within the OMOP Common Data Model and standardized analytics. 
+      Each Standard Concept belongs to one Domain, which defines the location where the Concept would be expected to occur within the data tables of the CDM. 
+      Concepts can represent broad categories ('Cardiovascular disease'), detailed clinical elements ('Myocardial infarction of the anterolateral wall'), or modifying characteristics and attributes that define Concepts at various levels of detail (severity of a disease, associated morphology, etc.). 
+      Records in the Standardized Vocabularies tables are derived from national or international vocabularies such as SNOMED-CT, RxNorm, and LOINC, or custom OMOP Concepts defined to cover various aspects of observational data analysis.
+    attributes:
+      concept_id:
+        identifier: true
+        description: Unique identifier for the concept in the OMOP CDM.
+        range: integer
+      concept_name:
+        description: An unambiguous, meaningful and descriptive name for the Concept.
+        range: string
+        required: true
+      concept_code:
+        description: >-
+          The concept code represents the identifier
+          of the Concept in the source vocabulary,
+          such as SNOMED-CT concept IDs,
+          RxNorm RXCUIs etc. Note that concept
+          codes are not unique across vocabularies.
+        range: string
+        required: true
+      domain_id:
+        description: A foreign key to the [DOMAIN](https://ohdsi.github.io/CommonDataModel/cdm54.html#domain) table the Concept belongs to.
+        range: Domain
+        required: true
+      vocabulary_id:
+        description: >-
+          A foreign key to the [VOCABULARY](https://ohdsi.github.io/CommonDataModel/cdm54.html#vocabulary)
+          table indicating from which source the Concept has been adapted.
+        range: Vocabulary
+        required: true
+      concept_class_id:
+        description: >-
+          The attribute or concept class of the
+          Concept. Examples are 'Clinical Drug',
+          'Ingredient', 'Clinical Finding' etc.
+        range: ConceptClass
+        required: true
+      standard_concept:
+        description: >- 
+          This flag determines where a Concept is
+          a Standard Concept, i.e. is used in the
+          data, a Classification Concept, or a
+          non-standard Source Concept. The
+          allowable values are 'S' (Standard
+          Concept) and 'C' (Classification
+          Concept), otherwise the content is NULL.
+        range: standard_concept
+        required: false
+      valid_start_date:
+        description: >-
+          The date when the Concept was first
+          recorded. The default value is
+          1-Jan-1970, meaning, the Concept has no
+          (known) date of inception.
+        range: date
+        required: true
+      valid_end_date:
+        description: >-
+          The date when the Concept became
+          invalid because it was deleted or
+          superseded (updated) by a new concept.
+          The default value is 31-Dec-2099,
+          meaning, the Concept is valid until it
+          becomes deprecated.
+        range: date
+        required: true  
+      invalid_reason:
+        description: >-
+          Reason the Concept was invalidated.
+          Possible values are D (deleted), U
+          (replaced with an update) or NULL when
+          valid_end_date has the default value.
+        range: string
+        required: false
+  Domain:
+    description: >-
+      The DOMAIN table includes a list of OMOP-defined Domains to which the Concepts of the Standardized Vocabularies can belong. 
+      A Domain represents a clinical definition whereby we assign matching Concepts for the standardized fields in the CDM tables. 
+      For example, the Condition Domain contains Concepts that describe a patient condition, and these Concepts can only be used in the condition_concept_id field of the CONDITION_OCCURRENCE and CONDITION_ERA tables. 
+      This reference table is populated with a single record for each Domain, including a Domain ID and a descriptive name for every Domain.
+    attributes:
+      domain_id:
+        identifier: true
+        range: string
+      domain_name:
+        range: string
+        required: true
+      domain_concept_id:
+        range: Concept
+        required: true
+  Vocabulary:
+    description: >-
+      The VOCABULARY table includes a list of the Vocabularies integrated from various sources or created de novo in OMOP CDM. 
+      This reference table contains a single record for each Vocabulary and includes a descriptive name and other associated attributes for the Vocabulary.
+    attributes:
+      vocabulary_id:
+        identifier: true
+        range: string
+      vocabulary_name:
+        range: string
+        required: true
+      vocabulary_reference:
+        range: string
+        required: true
+      vocabulary_version:
+        range: string
+        required: false
+      vocabulary_concept_id:
+        range: Concept
+        required: true
+  ConceptClass:
+    description: >-
+      The CONCEPT_CLASS table includes semantic categories that reference the source structure of each Vocabulary. 
+      Concept Classes represent so-called horizontal (e.g. MedDRA, RxNorm) or vertical levels (e.g. SNOMED) of the vocabulary structure. 
+      Vocabularies without any Concept Classes, such as HCPCS, use the vocabulary_id as the Concept Class. 
+      This reference table is populated with a single record for each Concept Class, which includes a Concept Class ID and a fully specified Concept Class name.
+    attributes:
+      concept_class_id:
+        identifier: true
+        range: string
+      concept_class_name:
+        range: string
+        required: true
+      concept_class_concept_id:
+        range: Concept
+        required: true
+  Relationship:
+    description: >-
+      The RELATIONSHIP table provides a reference list of all types of relationships that can be used to associate any two Concepts in the CONCEPT_RELATIONSHIP table, the respective reverse relationships, and their hierarchical characteristics. 
+      Note, that Concepts representing relationships between the clinical facts, used for filling in the FACT_RELATIONSHIP table are stored in the CONCEPT table and belong to the Relationship Domain.
+    attributes:
+      relationship_id:
+        identifier: true
+        range: string
+      relationship_name:
+        range: string
+        required: true
+      is_hierarchical:
+        range: integer
+        required: true
+        minimum_value: 0
+        maximum_value: 1
+      defines_ancestry:
+        range: integer
+        required: true
+        minimum_value: 0
+        maximum_value: 1
+      reverse_relationship_id:
+        range: Relationship
+        required: true
+      relationship_concept_id:
+        range: Concept
+        required: true
+
+enums:
+  standard_concept:
+    permissible_values:
+      S:
+        description: Standard
+      C:
+        description: Classification
+  deleted_concept:
+    permissible_values:
+      D:
+        description: Deleted
+      U:
+        description: Updated

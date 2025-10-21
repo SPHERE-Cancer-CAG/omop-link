@@ -1,0 +1,12 @@
+# Example for a valid data object
+---
+concept_id: 21117371
+concept_name: 10 ML Chloramphenicol 5 MG/ML Ophthalmic Solution by Co-Pharma
+domain_id: Drug
+vocabulary_id: RxNorm Extension
+concept_class_id: Marketed Product
+standard_concept: S
+concept_code: OMOP310177
+valid_start_date: 24-AUG-2017
+valid_end_date: 31-DEC-2099
+invalid_reason: NULL
