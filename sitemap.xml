@@ -9,6 +9,18 @@
          <lastmod>2025-10-22</lastmod>
     </url>
     <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/schemas/00preamble/</loc>
+         <lastmod>2025-10-22</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/schemas/01introduction/</loc>
+         <lastmod>2025-10-22</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/schemas/02schemas/</loc>
+         <lastmod>2025-10-22</lastmod>
+    </url>
+    <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/schemas/Boolean/</loc>
          <lastmod>2025-10-22</lastmod>
     </url>
