@@ -61,6 +61,6 @@ jobs:
           #deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./site/build/html
+          publish_dir: ./site
           allow_empty_commit: true
           verbose: true
