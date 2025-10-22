@@ -43,7 +43,7 @@ jobs:
 
       - name: Show Makefile deploy target
         run: |
-          grep -A10 -B2 deploy Makefile
+          grep -A20 -B20 deploy Makefile
       - name: Build docs
         working-directory: .
         env:
