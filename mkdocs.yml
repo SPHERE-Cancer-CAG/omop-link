@@ -18,6 +18,7 @@ nav:
   # - Home: home.md
   - Index: index.md
   - About: about.md
+  - ConceptClass: ConceptClass.md
 site_url: https://SPHERE-Cancer-CAG.github.io/omop-cdm
 repo_url: https://github.com/SPHERE-Cancer-CAG/omop-cdm
 markdown_extensions:
