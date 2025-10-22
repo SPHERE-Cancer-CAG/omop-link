@@ -44,23 +44,20 @@ jobs:
       - name: Show Makefile deploy target
         run: |
           grep -A20 -B20 deploy Makefile
-      - name: Build docs
+      - name: Build site with mkdocs
         working-directory: .
         env:
           SPHINXOPTS: "-W --keep-going"
         run: uv run make deploy
-      - name: Debug — show built docs
-        run: |
-          echo "PWD=$(pwd)"
-          ls -R .
-          echo "---- site ----"
-          ls -R site || echo "NO SITE DIR"
+      - name: Build full docs html
+        working-directory: ./site
+        run: uv run make html
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           #deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./site
+          publish_dir: ./site/build/html
           allow_empty_commit: true
           verbose: true
