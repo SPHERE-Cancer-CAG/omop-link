@@ -41,8 +41,9 @@ jobs:
       #     SPHINXOPTS: "-W --keep-going"
       #   run: uv run make html
 
-      - name: List docs
-        run: ls -R docs
+      - name: Show Makefile deploy target
+        run: |
+          grep -A10 -B2 deploy Makefile
       - name: Build docs
         working-directory: .
         env:
