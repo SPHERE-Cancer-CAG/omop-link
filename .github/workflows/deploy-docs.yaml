@@ -48,7 +48,7 @@ jobs:
         working-directory: .
         env:
           SPHINXOPTS: "-W --keep-going"
-        run: uv run make gendoc && uv run make site
+        run: uv run make gendoc && uv run make deploy #&& uv run make site
       - name: Build full docs html
         working-directory: ./site
         run: uv run make html
