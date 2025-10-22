@@ -111,7 +111,7 @@ create-data-harmonizer:
 	npm init data-harmonizer $(SOURCE_SCHEMA_PATH)
 
 mkd: 
-	uv run mkdocs build
+	$(RUN) mkdocs build
 
 
 all: site
