@@ -17,4 +17,4 @@ Here is some information about the omop-link project.
    :caption: Schemas:
    :glob:
 
-   ../schemas/*.md
+   ../schemas
