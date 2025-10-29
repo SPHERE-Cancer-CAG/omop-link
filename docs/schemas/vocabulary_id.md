@@ -17,8 +17,8 @@ Alias: vocabulary_id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Concept](Concept.md) | The Standardized Vocabularies contains records, or Concepts, that uniquely id... |  no  |
 | [Vocabulary](Vocabulary.md) | The VOCABULARY table includes a list of the Vocabularies integrated from vari... |  no  |
+| [Concept](Concept.md) | The Standardized Vocabularies contains records, or Concepts, that uniquely id... |  no  |
 
 
 
