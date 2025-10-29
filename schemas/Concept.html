@@ -9,9 +9,22 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Class: Vocabulary" href="Vocabulary.html" />
@@ -37,7 +50,8 @@
 <h1>Class: Concept<a class="headerlink" href="#class-concept" title="Link to this heading">¶</a></h1>
 <p><em>The Standardized Vocabularies contains records, or Concepts, that uniquely identify each fundamental unit of meaning used to express clinical information in all domain tables of the CDM.  Concepts are derived from vocabularies, which represent clinical information across a domain (e.g. conditions, drugs, procedures) through the use of codes and associated descriptions.  Some Concepts are designated Standard Concepts, meaning these Concepts can be used as normative expressions of a clinical entity within the OMOP Common Data Model and standardized analytics.  Each Standard Concept belongs to one Domain, which defines the location where the Concept would be expected to occur within the data tables of the CDM.  Concepts can represent broad categories (‘Cardiovascular disease’), detailed clinical elements (‘Myocardial infarction of the anterolateral wall’), or modifying characteristics and attributes that define Concepts at various levels of detail (severity of a disease, associated morphology, etc.).  Records in the Standardized Vocabularies tables are derived from national or international vocabularies such as SNOMED-CT, RxNorm, and LOINC, or custom OMOP Concepts defined to cover various aspects of observational data analysis.</em></p>
 <p>URI: <a class="reference external" href="https://athena.ohdsi.org/search-terms/terms#concept/Concept">https://athena.ohdsi.org/search-terms/terms#concept/Concept</a></p>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span> classDiagram
+<pre  class="mermaid">
+         classDiagram
     class Concept
     click Concept href &quot;../Concept/&quot;
       Concept : concept_class_id
@@ -97,9 +111,7 @@
 
         
       
-</pre></div>
-</div>
-<!-- no inheritance hierarchy -->
+    </pre><!-- no inheritance hierarchy -->
 <section id="slots">
 <h2>Slots<a class="headerlink" href="#slots" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
