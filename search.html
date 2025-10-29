@@ -12,6 +12,14 @@
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     <script src="_static/searchtools.js"></script>
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -81,6 +89,14 @@
 
 
 <h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Schemas:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="schemas/ConceptClass.html">Class: ConceptClass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/Domain.html">Class: Domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/Relationship.html">Class: Relationship</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/Concept.html">Class: Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/Vocabulary.html">Class: Vocabulary</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>

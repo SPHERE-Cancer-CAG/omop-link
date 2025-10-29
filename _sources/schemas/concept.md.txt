@@ -1,0 +1,5 @@
+# concept 
+
+Template for OMOP CDM Concept class, which represents a concept record in the OMOP Common Data Model.
+
+URI: https://athena.ohdsi.org/search-terms/terms#concept

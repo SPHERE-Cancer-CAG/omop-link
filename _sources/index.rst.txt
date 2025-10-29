@@ -17,4 +17,8 @@ Here is some information about the omop-link project.
    :caption: Schemas:
    :glob:
 
-   schemas/*
+   schemas/ConceptClass.md
+   schemas/Domain.md
+   schemas/Relationship.md
+   schemas/Concept.md
+   schemas/Vocabulary.md
