@@ -48,9 +48,9 @@ jobs:
         working-directory: .
         env:
           SPHINXOPTS: "-W --keep-going"
-        run: uv run make gendoc && uv run make deploy #&& uv run make site
+        run: uv run make gendoc #&& uv run make deploy #&& uv run make site
       - name: Build full docs html
-        working-directory: ./site
+        working-directory: ./docs
         run: uv run make html
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4.0.0
@@ -58,6 +58,6 @@ jobs:
           #deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./site/build/html
+          publish_dir: ./docs/build/html
           allow_empty_commit: true
           verbose: true
