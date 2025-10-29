@@ -17,8 +17,8 @@ Alias: concept_class_id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ConceptClass](ConceptClass.md) | The CONCEPT_CLASS table includes semantic categories that reference the sourc... |  no  |
 | [Concept](Concept.md) | The Standardized Vocabularies contains records, or Concepts, that uniquely id... |  no  |
+| [ConceptClass](ConceptClass.md) | The CONCEPT_CLASS table includes semantic categories that reference the sourc... |  no  |
 
 
 

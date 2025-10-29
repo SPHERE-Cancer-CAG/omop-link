@@ -17,8 +17,8 @@ Alias: domain_id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Domain](Domain.md) | The DOMAIN table includes a list of OMOP-defined Domains to which the Concept... |  no  |
 | [Concept](Concept.md) | The Standardized Vocabularies contains records, or Concepts, that uniquely id... |  no  |
+| [Domain](Domain.md) | The DOMAIN table includes a list of OMOP-defined Domains to which the Concept... |  no  |
 
 
 
