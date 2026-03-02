@@ -4,6 +4,10 @@ name: omop_named_sets
 imports:
   - omop_semantic_base
 
+prefixes:
+  linkml: https://w3id.org/linkml/
+  omop: https://athena.ohdsi.org/search-terms/terms/
+
 classes:
   CDMValueSets:
     slots:
