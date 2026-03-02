@@ -1,0 +1,19 @@
+name: t_stage_concepts
+class_uri: OmopGroup
+parent_concepts:
+  - concept_id: 1634213
+    label: t0
+  - concept_id: 1635564
+    label: t1
+  - concept_id: 1635562
+    label: t2
+  - concept_id: 1634376
+    label: t3
+  - concept_id: 1634654
+    label: t4
+  - concept_id: 1635114
+    label: ta
+  - concept_id: 1635682
+    label: tx
+  - concept_id: 1634530
+    label: tis

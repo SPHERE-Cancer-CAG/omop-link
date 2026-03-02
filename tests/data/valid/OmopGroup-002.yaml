@@ -1,0 +1,15 @@
+name: n_stage_concepts
+class_uri: OmopGroup
+parent_concepts:
+  - concept_id: 1633440
+    label: n0
+  - concept_id: 1634434
+    label: n1
+  - concept_id: 1634119
+    label: n2
+  - concept_id: 1635320
+    label: n3
+  - concept_id: 1635445
+    label: n4
+  - concept_id: 1633885
+    label: nx

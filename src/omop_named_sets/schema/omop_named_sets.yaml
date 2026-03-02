@@ -44,7 +44,7 @@ slots:
     range: string
     required: true
   valueset_members:
-    range: CDMSemanticUnits
+    range: OmopSemanticObject
     multivalued: true
     required: true
   valuesets:

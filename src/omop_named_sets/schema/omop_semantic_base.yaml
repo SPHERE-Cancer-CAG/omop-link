@@ -120,4 +120,5 @@ slots:
 
   class_uri:
     range: string
-    required: true
+    required: true  
+    designates_type: true
