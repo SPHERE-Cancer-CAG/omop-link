@@ -1,22 +1,17 @@
 # config.public.mk
 
 # This file is public in git. No sensitive info allowed.
-# These variables are sourced in Makefile, following make-file conventions.
-# Be aware that this file does not follow python or bash conventions, so may appear a little unfamiliar.
 
-###### schema definition variables, used by makefile
+###### schema definition variables, used by justfile
 
-# Note: makefile variables should not be quoted, as makefile handles quoting differently than bash
-LINKML_SCHEMA_NAME=cdm_vocabulary#"omop_cdm"
-LINKML_SCHEMA_AUTHOR="Georgie Kennedy <my-name@my-org.org>"
+# Note:
+# - just works fine with quoted variables of dot-env files like this one
+LINKML_SCHEMA_NAME="omop_cdm"
+LINKML_SCHEMA_AUTHOR="Georgie Kennedy <georgina.kennedy@unsw.edu.au>"
 LINKML_SCHEMA_DESCRIPTION="LinkML version of OMOP CDM including OMOP-tuned convention enforcement"
-LINKML_SCHEMA_SOURCE_PATH="src/cdm_vocabulary/schema/cdm_vocabulary.yaml"#omop_cdm.yaml"
-LINKML_SCHEMA_GOOGLE_SHEET_MODULE="personinfo_enums"
-LINKML_SCHEMA_GOOGLE_SHEET_ID="1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ"
-LINKML_SCHEMA_GOOGLE_SHEET_TABS="personinfo enums"
-LINKML_USE_SCHEMASHEETS=No
+LINKML_SCHEMA_SOURCE_DIR="src/omop_cdm/schema"
 
-###### linkml generator variables, used by makefile
+###### linkml generator variables, used by justfile
 
 ## gen-project configuration file
 LINKML_GENERATORS_CONFIG_YAML=config.yaml
@@ -25,9 +20,10 @@ LINKML_GENERATORS_CONFIG_YAML=config.yaml
 LINKML_GENERATORS_DOC_ARGS=
 
 ## pass args to workaround genowl rdfs config bug (linkml#1453)
-##   (i.e. --no-type-objects --no-metaclasses --metadata-profile rdfs)
+##   (i.e. --no-type-objects --no-metaclasses --metadata-profile=rdfs)
+# LINKML_GENERATORS_OWL_ARGS="--no-type-objects --no-metaclasses --metadata-profile=rdfs"
 LINKML_GENERATORS_OWL_ARGS=
 
-## pass args to trigger experimental java/typescript generation
-LINKML_GENERATORS_JAVA_ARGS=
-LINKML_GENERATORS_TYPESCRIPT_ARGS=
+## pass args to pydantic generator which isn't supported by gen-project
+## https://github.com/linkml/linkml/issues/2537
+LINKML_GENERATORS_PYDANTIC_ARGS=
