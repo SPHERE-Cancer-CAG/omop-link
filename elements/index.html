@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#omop-cdm-concept" class="md-skip">
+        <a href="#omop-semantic-object" class="md-skip">
           Skip to content
         </a>
       
@@ -503,10 +503,10 @@
   
 
 
-<h1 id="omop-cdm-concept">OMOP CDM Concept</h1>
-<p>Template for OMOP CDM Concept class, which represents a concept record in the OMOP Common Data Model.</p>
-<p>URI: https://athena.ohdsi.org/search-terms/terms#concept</p>
-<p>Name: concept</p>
+<h1 id="omop-semantic-object">OMOP Semantic Object</h1>
+<p>Core structure for OMOP concept identifiers used for complex semantic definitions, such as staging of neoplastic  disease through condition modifiers and their appropriate handling in episodes.</p>
+<p>URI: https://example.org/omop_semantics</p>
+<p>Name: omop_semantic_object</p>
 <h2 id="classes">Classes</h2>
 <table>
 <thead>
@@ -518,23 +518,27 @@
 <tbody>
 <tr>
 <td><a href="Concept/">Concept</a></td>
-<td>The Standardized Vocabularies contains records, or Concepts, that uniquely id...</td>
+<td>Concept that serves as a member of an OmopEnum</td>
 </tr>
 <tr>
-<td><a href="ConceptClass/">ConceptClass</a></td>
-<td>The CONCEPT_CLASS table includes semantic categories that reference the sourc...</td>
+<td><a href="OmopSemanticObject/">OmopSemanticObject</a></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="Domain/">Domain</a></td>
-<td>The DOMAIN table includes a list of OMOP-defined Domains to which the Concept...</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="OmopConcept/">OmopConcept</a></td>
+<td>A single OMOP concept with semantic annotations</td>
 </tr>
 <tr>
-<td><a href="Relationship/">Relationship</a></td>
-<td>The RELATIONSHIP table provides a reference list of all types of relationship...</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="OmopEnum/">OmopEnum</a></td>
+<td>Enumeration of permissible values for a particular slot</td>
 </tr>
 <tr>
-<td><a href="Vocabulary/">Vocabulary</a></td>
-<td>The VOCABULARY table includes a list of the Vocabularies integrated from vari...</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="OmopGroup/">OmopGroup</a></td>
+<td>Named group of OMOP concepts defined by their membership in a particular grou...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="OmopValueSet/">OmopValueSet</a></td>
+<td>A semantic grouping of permissible values for a template slot</td>
 </tr>
 </tbody>
 </table>
@@ -548,100 +552,36 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="concept_class_concept_id/">concept_class_concept_id</a></td>
+<td><a href="class_uri/">class_uri</a></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="concept_class_id/">concept_class_id</a></td>
-<td>The attribute or concept class of the Concept</td>
-</tr>
-<tr>
-<td><a href="concept_class_name/">concept_class_name</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="concept_code/">concept_code</a></td>
-<td>The concept code represents the identifier of the Concept in the source vocab...</td>
 </tr>
 <tr>
 <td><a href="concept_id/">concept_id</a></td>
-<td>Unique identifier for the concept in the OMOP CDM</td>
+<td>OMOP concept_id</td>
 </tr>
 <tr>
-<td><a href="concept_name/">concept_name</a></td>
-<td>An unambiguous, meaningful and descriptive name for the Concept</td>
-</tr>
-<tr>
-<td><a href="defines_ancestry/">defines_ancestry</a></td>
+<td><a href="enum_members/">enum_members</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="domain_concept_id/">domain_concept_id</a></td>
+<td><a href="label/">label</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="domain_id/">domain_id</a></td>
-<td>A foreign key to the [DOMAIN](https://ohdsi</td>
-</tr>
-<tr>
-<td><a href="domain_name/">domain_name</a></td>
+<td><a href="members/">members</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="invalid_reason/">invalid_reason</a></td>
-<td>Reason the Concept was invalidated</td>
-</tr>
-<tr>
-<td><a href="is_hierarchical/">is_hierarchical</a></td>
+<td><a href="name/">name</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="relationship_concept_id/">relationship_concept_id</a></td>
+<td><a href="notes/">notes</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="relationship_id/">relationship_id</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="relationship_name/">relationship_name</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="reverse_relationship_id/">reverse_relationship_id</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="standard_concept/">standard_concept</a></td>
-<td>This flag determines where a Concept is a Standard Concept, i</td>
-</tr>
-<tr>
-<td><a href="valid_end_date/">valid_end_date</a></td>
-<td>The date when the Concept became invalid because it was deleted or superseded...</td>
-</tr>
-<tr>
-<td><a href="valid_start_date/">valid_start_date</a></td>
-<td>The date when the Concept was first recorded</td>
-</tr>
-<tr>
-<td><a href="vocabulary_concept_id/">vocabulary_concept_id</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="vocabulary_id/">vocabulary_id</a></td>
-<td>A foreign key to the [VOCABULARY](https://ohdsi</td>
-</tr>
-<tr>
-<td><a href="vocabulary_name/">vocabulary_name</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="vocabulary_reference/">vocabulary_reference</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="vocabulary_version/">vocabulary_version</a></td>
-<td></td>
+<td><a href="parent_concepts/">parent_concepts</a></td>
+<td>Semantic parent concepts or grouping parents</td>
 </tr>
 </tbody>
 </table>
@@ -655,11 +595,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="DeletedConcept/">DeletedConcept</a></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="StandardConcept/">StandardConcept</a></td>
 <td></td>
 </tr>
 </tbody>

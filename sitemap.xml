@@ -21,10 +21,6 @@
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/ConceptClass/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/Curie/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
@@ -42,14 +38,6 @@
     </url>
     <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/Decimal/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/DeletedConcept/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/Domain/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
@@ -85,15 +73,27 @@
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/Relationship/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/OmopConcept/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/OmopEnum/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/OmopGroup/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/OmopSemanticObject/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/OmopValueSet/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/Sparqlpath/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/StandardConcept/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
@@ -113,27 +113,7 @@
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/Vocabulary/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/concept/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/concept_class_concept_id/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/concept_class_id/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/concept_class_name/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/concept_code/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/class_uri/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
@@ -141,79 +121,31 @@
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/concept_name/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/enum_members/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/defines_ancestry/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/label/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/domain_concept_id/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/members/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/domain_id/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/name/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/domain_name/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/notes/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/invalid_reason/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/omop_semantic_object/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/is_hierarchical/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/relationship_concept_id/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/relationship_id/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/relationship_name/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/reverse_relationship_id/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/standard_concept/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/valid_end_date/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/valid_start_date/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/vocabulary_concept_id/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/vocabulary_id/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/vocabulary_name/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/vocabulary_reference/</loc>
-         <lastmod>2026-03-02</lastmod>
-    </url>
-    <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/vocabulary_version/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/parent_concepts/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>

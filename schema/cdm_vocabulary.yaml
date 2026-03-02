@@ -859,7 +859,7 @@ classes:
     class_uri: https://athena.ohdsi.org/search-terms/terms#concept/Relationship
 metamodel_version: 1.7.0
 source_file: cdm_vocabulary.yaml
-source_file_date: '2026-03-02T06:37:07'
+source_file_date: '2026-03-02T15:59:43'
 source_file_size: 8192
-generation_date: '2026-03-02T06:37:17'
+generation_date: '2026-03-02T17:30:53'
 
