@@ -13,10 +13,9 @@ prefixes:
 
 imports:
   - linkml:types
-  
+
 default_prefix: omop
 default_range: string
-
 
 classes:
 
