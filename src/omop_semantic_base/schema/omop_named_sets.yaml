@@ -1,4 +1,4 @@
-id: https://example.org/omop_semantics/omop_named_sets
+id: https://example.org/omop_named_sets
 name: omop_named_sets
 
 imports:
@@ -39,8 +39,6 @@ slots:
   valueset_name:
     range: string
     required: true
-  name:
-    range: string
   members:
     range: CDMSemanticUnits
     multivalued: true
