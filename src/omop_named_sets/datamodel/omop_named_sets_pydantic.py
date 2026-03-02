@@ -73,6 +73,10 @@ linkml_meta = LinkMLMeta({'default_prefix': 'https://example.org/omop_named_sets
 
 
 class OmopSemanticObject(ConfiguredBaseModel):
+    """
+    Abstract base class for OMOP semantic objects.  Used to represent concepts, groups of concepts, enumerations of concepts, and value sets of concepts in the context of defining complex semantic structures for the OMOP CDM.
+
+    """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True, 'from_schema': 'https://example.org/omop_semantics'})
 
     class_uri: Literal["OmopSemanticObject"] = Field(default="OmopSemanticObject", json_schema_extra = { "linkml_meta": {'alias': 'class_uri',
@@ -102,7 +106,7 @@ class OmopGroup(OmopSemanticObject):
 
 class OmopConcept(OmopSemanticObject):
     """
-    A single OMOP concept with semantic annotations
+    A single labelled OMOP concept for use in higher level semantic annotations
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantics',
          'slot_usage': {'class_uri': {'equals_string': 'OmopConcept',
@@ -120,7 +124,7 @@ class OmopConcept(OmopSemanticObject):
 
 class OmopEnum(OmopSemanticObject):
     """
-    Enumeration of permissible values for a particular slot. This is intended to be used for defining slots that have a fixed set of permissible values, such as the staging axis (T, N, M, Group). This will not update dynamically with vocabulary updates, so should be used for concepts that are  short lists and not expected to change over time.
+    Enumeration (static) of permissible values for a particular slot. This is intended to be used for defining slots that have a fixed set of permissible values, such as the staging axis (T, N, M, Group). This will not update dynamically with vocabulary updates, so should be used for concepts that are  short lists and not expected to change over time.
 
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantics',
@@ -138,7 +142,7 @@ class OmopEnum(OmopSemanticObject):
 
 class OmopValueSet(OmopSemanticObject):
     """
-    A semantic grouping of permissible values for a template slot. Members may be OmopConcepts, OmopGroups, or OmopEnums. This represents a registry-level value domain, not a direct OMOP structure.
+    A semantic grouping of mixed types of permissible values for a template slot. Members may be OmopConcepts, OmopGroups, or OmopEnums. This represents a registry-level value domain, not a direct OMOP structure.
 
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantics',
@@ -156,7 +160,7 @@ class OmopValueSet(OmopSemanticObject):
 
 class Concept(ConfiguredBaseModel):
     """
-    Concept that serves as a member of an OmopEnum. This is intended to be used for defining the permissible values of an OmopEnum, which is a fixed enumeration  of concepts that does not change dynamically with vocabulary updates.  The concept_id and label slots are used to specify the concept_id  and label of the concept that serves as a member of the enumeration.
+    Concept that serves as a member of a semantic object. This is intended to be used for defining the permissible values of an OmopSemanticObject, such as the members of an OmopGroup or OmopEnum.  The concept_id and label slots are used to specify the concept_id and label of the concept that serves as a  member of the enumeration.
 
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantics'})

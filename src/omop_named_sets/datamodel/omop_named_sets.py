@@ -1,5 +1,5 @@
 # Auto generated from omop_named_sets.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-02T21:44:01
+# Generation date: 2026-03-02T22:24:59
 # Schema: omop_named_sets
 #
 # id: https://example.org/omop_named_sets
@@ -148,6 +148,10 @@ class CDMSemanticUnits(YAMLRoot):
 
 @dataclass(repr=False)
 class OmopSemanticObject(YAMLRoot):
+    """
+    Abstract base class for OMOP semantic objects. Used to represent concepts, groups of concepts, enumerations of
+    concepts, and value sets of concepts in the context of defining complex semantic structures for the OMOP CDM.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = OMOP["OmopSemanticObject"]
@@ -229,7 +233,7 @@ class OmopGroup(OmopSemanticObject):
 @dataclass(repr=False)
 class OmopConcept(OmopSemanticObject):
     """
-    A single OMOP concept with semantic annotations
+    A single labelled OMOP concept for use in higher level semantic annotations
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -263,9 +267,10 @@ class OmopConcept(OmopSemanticObject):
 @dataclass(repr=False)
 class OmopEnum(OmopSemanticObject):
     """
-    Enumeration of permissible values for a particular slot. This is intended to be used for defining slots that have
-    a fixed set of permissible values, such as the staging axis (T, N, M, Group). This will not update dynamically
-    with vocabulary updates, so should be used for concepts that are short lists and not expected to change over time.
+    Enumeration (static) of permissible values for a particular slot. This is intended to be used for defining slots
+    that have a fixed set of permissible values, such as the staging axis (T, N, M, Group). This will not update
+    dynamically with vocabulary updates, so should be used for concepts that are short lists and not expected to
+    change over time.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -298,8 +303,8 @@ class OmopEnum(OmopSemanticObject):
 @dataclass(repr=False)
 class OmopValueSet(OmopSemanticObject):
     """
-    A semantic grouping of permissible values for a template slot. Members may be OmopConcepts, OmopGroups, or
-    OmopEnums. This represents a registry-level value domain, not a direct OMOP structure.
+    A semantic grouping of mixed types of permissible values for a template slot. Members may be OmopConcepts,
+    OmopGroups, or OmopEnums. This represents a registry-level value domain, not a direct OMOP structure.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -328,10 +333,9 @@ class OmopValueSet(OmopSemanticObject):
 @dataclass(repr=False)
 class Concept(YAMLRoot):
     """
-    Concept that serves as a member of an OmopEnum. This is intended to be used for defining the permissible values of
-    an OmopEnum, which is a fixed enumeration of concepts that does not change dynamically with vocabulary updates.
-    The concept_id and label slots are used to specify the concept_id and label of the concept that serves as a member
-    of the enumeration.
+    Concept that serves as a member of a semantic object. This is intended to be used for defining the permissible
+    values of an OmopSemanticObject, such as the members of an OmopGroup or OmopEnum. The concept_id and label slots
+    are used to specify the concept_id and label of the concept that serves as a member of the enumeration.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
