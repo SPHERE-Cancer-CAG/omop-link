@@ -548,7 +548,7 @@ classes:
     class_uri: omop:Concept
 metamodel_version: 1.7.0
 source_file: omop_semantic_base.yaml
-source_file_date: '2026-03-02T09:52:48'
+source_file_date: '2026-03-02T09:53:27'
 source_file_size: 3285
-generation_date: '2026-03-02T09:52:58'
+generation_date: '2026-03-02T09:53:37'
 
