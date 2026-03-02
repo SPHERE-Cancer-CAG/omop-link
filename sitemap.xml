@@ -17,6 +17,18 @@
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/CDMSemanticUnits/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/CDMValueSet/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/CDMValueSets/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/Concept/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
@@ -137,15 +149,43 @@
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/named_concepts/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/named_enumerators/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/named_groups/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/named_valuesets/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/notes/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
-         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/omop_semantic_object/</loc>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/omop_named_sets/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/parent_concepts/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/valueset_members/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/valueset_name/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/valuesets/</loc>
          <lastmod>2026-03-02</lastmod>
     </url>
     <url>

@@ -428,7 +428,7 @@
 
 
 <h1 id="slot-notes">Slot: notes</h1>
-<p>URI: <a href="https://athena.ohdsi.org/search-terms/terms/notes">omop:notes</a>
+<p>URI: <a href="https://example.org/omop_named_sets/notes">https://example.org/omop_named_sets/notes</a>
 Alias: notes</p>
 <!-- no inheritance hierarchy -->
 
@@ -443,8 +443,8 @@ Alias: notes</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../OmopGroup/">OmopGroup</a></td>
-<td>Named group of OMOP concepts defined by their membership in a particular grou...</td>
+<td><a href="../OmopConcept/">OmopConcept</a></td>
+<td>A single OMOP concept with semantic annotations</td>
 <td>no</td>
 </tr>
 <tr>
@@ -453,13 +453,13 @@ Alias: notes</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../OmopEnum/">OmopEnum</a></td>
-<td>Enumeration of permissible values for a particular slot</td>
+<td><a href="../OmopGroup/">OmopGroup</a></td>
+<td>Named group of OMOP concepts defined by their membership in a particular grou...</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../OmopConcept/">OmopConcept</a></td>
-<td>A single OMOP concept with semantic annotations</td>
+<td><a href="../OmopEnum/">OmopEnum</a></td>
+<td>Enumeration of permissible values for a particular slot</td>
 <td>no</td>
 </tr>
 <tr>
@@ -476,7 +476,7 @@ Alias: notes</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://example.org/omop_semantics</li>
+<li>from schema: https://example.org/omop_named_sets</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -489,18 +489,18 @@ Alias: notes</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>omop:notes</td>
+<td>https://example.org/omop_named_sets/notes</td>
 </tr>
 <tr>
 <td>native</td>
-<td>omop:notes</td>
+<td>https://example.org/omop_named_sets/notes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notes</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/omop_semantics</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/omop_named_sets</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notes</span>
 <span class="nt">domain_of</span><span class="p">:</span>
