@@ -9,7 +9,7 @@
 LINKML_SCHEMA_NAME="omop_named_sets"
 LINKML_SCHEMA_AUTHOR="Georgie Kennedy <georgina.kennedy@unsw.edu.au>"
 LINKML_SCHEMA_DESCRIPTION="LinkML version of OMOP CDM including OMOP-tuned convention enforcement"
-LINKML_SCHEMA_SOURCE_DIR="src/omop_semantic_base/schema"
+LINKML_SCHEMA_SOURCE_DIR="src/omop_named_sets/schema"
 
 ###### linkml generator variables, used by justfile
 
