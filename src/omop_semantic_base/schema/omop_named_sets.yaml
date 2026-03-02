@@ -2,7 +2,7 @@ id: https://example.org/omop_semantics/omop_named_sets
 name: omop_named_sets
 
 imports:
-  - omop_base
+  - omop_semantic_base
 
 classes:
   CDMValueSets:
