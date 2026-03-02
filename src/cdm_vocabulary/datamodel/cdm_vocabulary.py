@@ -1,5 +1,5 @@
 # Auto generated from cdm_vocabulary.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-02T17:28:32
+# Generation date: 2026-03-02T17:29:06
 # Schema: concept
 #
 # id: https://athena.ohdsi.org/search-terms/terms#concept
