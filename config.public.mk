@@ -6,10 +6,10 @@
 
 # Note:
 # - just works fine with quoted variables of dot-env files like this one
-LINKML_SCHEMA_NAME="cdm_vocabulary"
+LINKML_SCHEMA_NAME="omop_semantic_base"
 LINKML_SCHEMA_AUTHOR="Georgie Kennedy <georgina.kennedy@unsw.edu.au>"
 LINKML_SCHEMA_DESCRIPTION="LinkML version of OMOP CDM including OMOP-tuned convention enforcement"
-LINKML_SCHEMA_SOURCE_DIR="src/cdm_vocabulary/schema"
+LINKML_SCHEMA_SOURCE_DIR="src/omop_semantic_base/schema"
 
 ###### linkml generator variables, used by justfile
 
