@@ -1,0 +1,4 @@
+class_uri: OmopConcept
+name: field_condition_occurrence_id
+concept_id: 1147127
+label: "condition_occurrence.condition_occurrence_id"

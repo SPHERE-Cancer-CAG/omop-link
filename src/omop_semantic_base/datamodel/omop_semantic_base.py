@@ -1,5 +1,5 @@
 # Auto generated from omop_semantic_base.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-02T20:48:35
+# Generation date: 2026-03-02T21:12:35
 # Schema: omop_semantic_object
 #
 # id: https://example.org/omop_semantics

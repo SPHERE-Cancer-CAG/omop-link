@@ -1,0 +1,13 @@
+name: modifier_fields
+class_uri: OmopEnum
+enum_members:
+  - concept_id: 1147127
+    label: condition_occurrence_id
+  - concept_id: 1147707
+    label: drug_exposure_id
+  - concept_id: 1147082
+    label: procedure_occurrence_id
+  - concept_id: 756290
+    label: episode_id
+  - concept_id: 1147138
+    label: measurement_id

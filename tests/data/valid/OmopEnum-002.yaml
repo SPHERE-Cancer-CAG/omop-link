@@ -1,0 +1,11 @@
+name: treatment_intent
+class_uri: OmopEnum
+enum_members:
+  - concept_id: 4161587
+    label: neoadjuvant
+  - concept_id: 4191637
+    label: adjuvant
+  - concept_id: 4162591
+    label: curative
+  - concept_id: 4179711
+    label: palliative

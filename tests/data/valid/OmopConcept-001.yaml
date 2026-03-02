@@ -1,0 +1,5 @@
+class_uri: OmopConcept
+name: primary_malignant_neoplasm
+concept_id: 439392
+label: "Primary malignant neoplasm"
+notes: "Example OMOP concept for testing"
