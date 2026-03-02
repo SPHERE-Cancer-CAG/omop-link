@@ -1,7 +1,13 @@
-/project/docs/
-/tmp/
-# PyCharm files
-.idea/
+# generated part of documentation
+/docs/elements/*.md
+# linkml-run-examples output (not useful to have in git in its current form)
+/examples/output/
+
+# Derived schemas, generated from the schema.yaml
+tmp/
+project/
+!project/README.md
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -9,6 +15,7 @@ __pycache__/
 
 # C extensions
 *.so
+
 # Distribution / packaging
 .Python
 build/
@@ -63,15 +70,14 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-.DS_Store
+
 # Flask stuff:
 instance/
 .webassets-cache
 
 # Scrapy stuff:
 .scrapy
-gh-pages
-gh-pages.pub
+
 # Sphinx documentation
 docs/_build/
 
@@ -132,4 +138,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-.vscode/
+# pycharm
+.idea
+# Local vscode editor config
+.vscode

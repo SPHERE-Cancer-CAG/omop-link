@@ -1,63 +1,62 @@
 ---
-name: Auto-deployment of omop_cdm Documentation
-on:
+name: Deploy docs
+on:  # yamllint disable-line rule:truthy
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions: {}
 
 jobs:
   build-docs:
     runs-on: ubuntu-latest
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    strategy:
+      matrix:
+        pyversion: ["3.13"]
+
+    # Grant GITHUB_TOKEN the permissions required to make a gh-pages deployment
     permissions:
       contents: write  # to let mkdocs write the new docs
       pages: write     # to deploy to Pages
-      id-token: write  # to verify the deployment originates from an appropriate source
+      id-token: write  # allow to generate an OpenID Connect (OIDC) token
 
     steps:
-
-      - name: Check out repository
-        uses: actions/checkout@v5.0.0
+      # https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # otherwise, you will fail to push refs to dest repo
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v6.6.1
-        with:
-          version: ${{ env.UV_VERSION }}
-          enable-cache: true
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6.0.0
-        id: setup-python
-        with:
-          python-version: '3.12'
-      - name: Install dependencies
-        run: uv sync --all-groups #--group dev --group docs --group lint
-
-      # - name: Build docs
-      #   working-directory: docs
-      #   env:
-      #     SPHINXOPTS: "-W --keep-going"
-      #   run: uv run make html
-
-      - name: Show Makefile deploy target
+      - name: Configure git for the bot
+        # Gives the bot that commits to gh-pages a name & email address
+        # so that the commits have an author in the commit log.
         run: |
-          grep -A20 -B20 deploy Makefile
-      - name: Build site with mkdocs
-        working-directory: .
-        env:
-          SPHINXOPTS: "-W --keep-going"
-        run: uv run make gendoc #&& uv run make deploy #&& uv run make site
-      - name: Build full docs html
-        working-directory: ./docs
-        run: uv run make html
-      - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v4.0.0
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+
+      # https://github.com/astral-sh/setup-uv
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7.2.1
         with:
-          #deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./docs/build/html
-          allow_empty_commit: true
-          verbose: true
+          python-version: ${{ matrix.pyversion }}
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      # https://github.com/actions/setup-python
+      - name: Set up Python
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: ${{ matrix.pyversion }}
+
+      - name: Install just
+        run: |
+          uv tool install rust-just
+
+      - name: Install dependencies
+        run: uv sync --dev --no-progress
+
+      - name: Generate schema documentation
+        run: |
+          just gen-doc
+          uv run mkdocs gh-deploy

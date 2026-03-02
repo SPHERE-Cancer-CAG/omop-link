@@ -1,31 +1,64 @@
 ---
 site_name: "omop-cdm"
 theme:
+  # https://www.mkdocs.org/user-guide/configuration/#theme
   name: material
+  icon:
+    logo: material/book-open-page-variant
   # palette:
   #  scheme: slate
   #  primary: cyan
   features:
     - content.tabs.link
+    - header.autohide      # maximum screen space during scrolling
+    - navigation.expand    # optimize user experience
+    - navigation.instant   # optimize user experience
+    - navigation.instant.progress
+    - navigation.tracking  # update address bar
+    - search.suggest       # suggest good completions
+    - content.code.copy    # enable copy to clipboard
+
+# extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
+extra_css: []
+extra_javascript: []
+
 plugins:
   - search
-  - mermaid2
   - mknotebooks:
       execute: false
   - mermaid2:
-      version: 10.9.0
+      version: 11.4.1
+  - mkdocs_pymdownx_material_extras:
+    # https://pypi.org/project/mkdocs-pymdownx-material-extras
+
+markdown_extensions:
+  - pymdownx.superfences:
+      # https://mkdocs-mermaid2.readthedocs.io/en/latest/superfences
+      # custom code highlighting rules
+      custom_fences:
+        - name: mermaid
+          # disable code highlighting to display diagrams
+          format: !!python/name:pymdownx.superfences.fence_code_format
+          class: mermaid
+
+  # TODO rebuild docs on schema change (https://github.com/dalito/linkml-project-copier/issues/39)
+  # - gen-files:
+  #     scripts:
+  #       - gen_pages.py  # or any other name or path
+
+watch:
+  - src/omop_cdm/schema
+
 nav:
-  # - Home: home.md
-  - Index: index.md
+  - Home: index.md
+  - Schema: elements/index.md
   - About: about.md
-  - ConceptClass: ConceptClass.md
+
+exclude_docs: |
+  /templates-linkml/
+
 site_url: https://SPHERE-Cancer-CAG.github.io/omop-cdm
 repo_url: https://github.com/SPHERE-Cancer-CAG/omop-cdm
-markdown_extensions:
-  - tables
-extra_javascript:
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - javascripts/tablesort.js
 
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.

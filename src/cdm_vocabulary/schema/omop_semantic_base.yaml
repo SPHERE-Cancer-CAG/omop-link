@@ -11,11 +11,11 @@ prefixes:
   linkml: https://w3id.org/linkml/
   omop: https://athena.ohdsi.org/search-terms/terms/
 
-default_prefix: omop
-default_range: string
-
 imports:
   - linkml:types
+
+default_prefix: omop
+default_range: string
 
 classes:
 
