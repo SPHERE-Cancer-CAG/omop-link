@@ -549,6 +549,11 @@ classes:
   OmopSemanticObject:
     name: OmopSemanticObject
     definition_uri: https://athena.ohdsi.org/search-terms/terms/OmopSemanticObject
+    description: 'Abstract base class for OMOP semantic objects.  Used to represent
+      concepts, groups of concepts, enumerations of concepts, and value sets of concepts
+      in the context of defining complex semantic structures for the OMOP CDM.
+
+      '
     from_schema: https://example.org/omop_semantics
     abstract: true
     slots:
@@ -581,7 +586,7 @@ classes:
   OmopConcept:
     name: OmopConcept
     definition_uri: https://athena.ohdsi.org/search-terms/terms/OmopConcept
-    description: A single OMOP concept with semantic annotations
+    description: A single labelled OMOP concept for use in higher level semantic annotations
     from_schema: https://example.org/omop_semantics
     is_a: OmopSemanticObject
     slots:
@@ -598,8 +603,8 @@ classes:
   OmopEnum:
     name: OmopEnum
     definition_uri: https://athena.ohdsi.org/search-terms/terms/OmopEnum
-    description: 'Enumeration of permissible values for a particular slot. This is
-      intended to be used for defining slots that have a fixed set of permissible
+    description: 'Enumeration (static) of permissible values for a particular slot.
+      This is intended to be used for defining slots that have a fixed set of permissible
       values, such as the staging axis (T, N, M, Group). This will not update dynamically
       with vocabulary updates, so should be used for concepts that are  short lists
       and not expected to change over time.
@@ -620,9 +625,9 @@ classes:
   OmopValueSet:
     name: OmopValueSet
     definition_uri: https://athena.ohdsi.org/search-terms/terms/OmopValueSet
-    description: 'A semantic grouping of permissible values for a template slot. Members
-      may be OmopConcepts, OmopGroups, or OmopEnums. This represents a registry-level
-      value domain, not a direct OMOP structure.
+    description: 'A semantic grouping of mixed types of permissible values for a template
+      slot. Members may be OmopConcepts, OmopGroups, or OmopEnums. This represents
+      a registry-level value domain, not a direct OMOP structure.
 
       '
     from_schema: https://example.org/omop_semantics
@@ -640,11 +645,11 @@ classes:
   Concept:
     name: Concept
     definition_uri: https://athena.ohdsi.org/search-terms/terms/Concept
-    description: 'Concept that serves as a member of an OmopEnum. This is intended
-      to be used for defining the permissible values of an OmopEnum, which is a fixed
-      enumeration  of concepts that does not change dynamically with vocabulary updates.  The
-      concept_id and label slots are used to specify the concept_id  and label of
-      the concept that serves as a member of the enumeration.
+    description: 'Concept that serves as a member of a semantic object. This is intended
+      to be used for defining the permissible values of an OmopSemanticObject, such
+      as the members of an OmopGroup or OmopEnum.  The concept_id and label slots
+      are used to specify the concept_id and label of the concept that serves as a  member
+      of the enumeration.
 
       '
     from_schema: https://example.org/omop_semantics
@@ -654,7 +659,7 @@ classes:
     class_uri: omop:Concept
 metamodel_version: 1.7.0
 source_file: omop_named_sets.yaml
-source_file_date: '2026-03-02T10:45:41'
+source_file_date: '2026-03-02T11:25:44'
 source_file_size: 1014
-generation_date: '2026-03-02T10:45:52'
+generation_date: '2026-03-02T11:25:54'
 
