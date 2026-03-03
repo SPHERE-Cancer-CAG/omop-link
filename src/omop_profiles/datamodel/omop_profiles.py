@@ -1,5 +1,5 @@
 # Auto generated from omop_profiles.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-03T11:50:05
+# Generation date: 2026-03-03T11:50:19
 # Schema: omop_templates
 #
 # id: https://example.org/omop_semantics

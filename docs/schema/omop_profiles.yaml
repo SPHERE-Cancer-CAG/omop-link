@@ -9,6 +9,7 @@ id: https://example.org/omop_semantics
 imports:
 - linkml:types
 - omop_semantic_base
+- omop_named_sets
 license: https://creativecommons.org/publicdomain/zero/1.0/
 prefixes:
   linkml:
@@ -353,10 +354,11 @@ slots:
     definition_uri: https://athena.ohdsi.org/search-terms/terms/name
     from_schema: https://example.org/omop_semantic_base
     slot_uri: omop:name
-    owner: OmopSemanticObject
+    owner: CDMSemanticUnits
     domain_of:
     - OmopTemplate
     - OmopSemanticObject
+    - CDMSemanticUnits
     range: string
     required: true
   concept_id:
@@ -438,6 +440,85 @@ slots:
     - OmopSemanticObject
     range: string
     required: true
+  named_enumerators:
+    name: named_enumerators
+    definition_uri: https://example.org/omop_named_sets/named_enumerators
+    from_schema: https://example.org/omop_named_sets
+    slot_uri: https://example.org/omop_named_sets/named_enumerators
+    owner: CDMSemanticUnits
+    domain_of:
+    - CDMSemanticUnits
+    range: OmopEnum
+    required: false
+    multivalued: true
+    inlined: true
+  named_concepts:
+    name: named_concepts
+    definition_uri: https://example.org/omop_named_sets/named_concepts
+    from_schema: https://example.org/omop_named_sets
+    slot_uri: https://example.org/omop_named_sets/named_concepts
+    owner: CDMSemanticUnits
+    domain_of:
+    - CDMSemanticUnits
+    range: OmopConcept
+    required: false
+    multivalued: true
+    inlined: true
+  named_valuesets:
+    name: named_valuesets
+    definition_uri: https://example.org/omop_named_sets/named_valuesets
+    from_schema: https://example.org/omop_named_sets
+    slot_uri: https://example.org/omop_named_sets/named_valuesets
+    range: OmopValueSet
+    required: false
+    multivalued: true
+    inlined: true
+  named_groups:
+    name: named_groups
+    definition_uri: https://example.org/omop_named_sets/named_groups
+    from_schema: https://example.org/omop_named_sets
+    slot_uri: https://example.org/omop_named_sets/named_groups
+    owner: CDMSemanticUnits
+    domain_of:
+    - CDMSemanticUnits
+    range: OmopGroup
+    required: false
+    multivalued: true
+    inlined: true
+  valueset_name:
+    name: valueset_name
+    definition_uri: https://example.org/omop_named_sets/valueset_name
+    from_schema: https://example.org/omop_named_sets
+    slot_uri: https://example.org/omop_named_sets/valueset_name
+    owner: CDMValueSet
+    domain_of:
+    - CDMValueSet
+    range: string
+    required: true
+  valueset_members:
+    name: valueset_members
+    definition_uri: https://example.org/omop_named_sets/valueset_members
+    from_schema: https://example.org/omop_named_sets
+    slot_uri: https://example.org/omop_named_sets/valueset_members
+    owner: CDMValueSet
+    domain_of:
+    - CDMValueSet
+    range: OmopSemanticObject
+    required: true
+    multivalued: true
+    inlined: true
+  valuesets:
+    name: valuesets
+    definition_uri: https://example.org/omop_named_sets/valuesets
+    from_schema: https://example.org/omop_named_sets
+    slot_uri: https://example.org/omop_named_sets/valuesets
+    owner: CDMValueSets
+    domain_of:
+    - CDMValueSets
+    range: CDMValueSet
+    required: true
+    multivalued: true
+    inlined: true
   OmopGroup_class_uri:
     name: OmopGroup_class_uri
     definition_uri: https://athena.ohdsi.org/search-terms/terms/class_uri
@@ -634,9 +715,40 @@ classes:
     - concept_id
     - label
     class_uri: omop:Concept
+  CDMValueSets:
+    name: CDMValueSets
+    definition_uri: https://example.org/omop_named_sets/CDMValueSets
+    description: 'A collection of value sets used for defining permissible values
+      for template slots in the OMOP CDM. This is intended to be used as a registry
+      of value sets that can be referenced in template definitions.
+
+      '
+    from_schema: https://example.org/omop_named_sets
+    slots:
+    - valuesets
+    class_uri: https://example.org/omop_named_sets/CDMValueSets
+    tree_root: true
+  CDMValueSet:
+    name: CDMValueSet
+    definition_uri: https://example.org/omop_named_sets/CDMValueSet
+    from_schema: https://example.org/omop_named_sets
+    slots:
+    - valueset_name
+    - valueset_members
+    class_uri: https://example.org/omop_named_sets/CDMValueSet
+  CDMSemanticUnits:
+    name: CDMSemanticUnits
+    definition_uri: https://example.org/omop_named_sets/CDMSemanticUnits
+    from_schema: https://example.org/omop_named_sets
+    slots:
+    - name
+    - named_enumerators
+    - named_concepts
+    - named_groups
+    class_uri: https://example.org/omop_named_sets/CDMSemanticUnits
 metamodel_version: 1.7.0
 source_file: omop_profiles.yaml
-source_file_date: '2026-03-03T09:54:53'
-source_file_size: 1591
-generation_date: '2026-03-03T11:49:02'
+source_file_date: '2026-03-03T11:49:57'
+source_file_size: 1611
+generation_date: '2026-03-03T11:50:27'
 
