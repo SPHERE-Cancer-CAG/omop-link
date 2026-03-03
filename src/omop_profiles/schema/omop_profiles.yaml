@@ -9,6 +9,7 @@ description: >
 
 imports:
   - omop_semantic_base
+  - omop_named_sets
 
 prefixes:
   linkml: https://w3id.org/linkml/

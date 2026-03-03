@@ -12,7 +12,6 @@ classes:
   CDMValueSets:
     slots:
       - valuesets
-    tree_root: true
     description: >
       A collection of value sets used for defining permissible values for template slots in the OMOP CDM.
       This is intended to be used as a registry of value sets that can be referenced in template definitions.

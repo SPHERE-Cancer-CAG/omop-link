@@ -61,21 +61,36 @@ class LinkMLMeta(RootModel):
         return key in self.root
 
 
-linkml_meta = LinkMLMeta({'default_prefix': 'omop',
-     'default_range': 'string',
-     'description': 'Core structure for OMOP concept identifiers used for complex '
-                    'semantic definitions, such as staging of neoplastic  disease '
-                    'through condition modifiers and their appropriate handling in '
-                    'episodes.\n',
-     'id': 'https://athena.ohdsi.org/search-terms/terms/omop_templates',
-     'imports': ['linkml:types', 'omop_semantic_base', 'omop_named_sets'],
-     'name': 'omop_templates',
+linkml_meta = LinkMLMeta({'default_prefix': 'https://athena.ohdsi.org/search-terms/terms/omop_profiles/',
+     'description': "LinkML schema for defining the set of profiles, or 'shapes' "
+                    'of data that can be  validly populated with clinical '
+                    'endpoints in the OMOP CDM.  This is intended to be used for '
+                    'defining the permissible semantic structures that  can be '
+                    'used to populate the CDM, such as EAV form, or direct concept '
+                    'identifier slots. \n',
+     'id': 'https://athena.ohdsi.org/search-terms/terms/omop_profiles',
+     'imports': ['omop_semantic_base', 'omop_named_sets'],
+     'name': 'omop_profiles',
      'prefixes': {'linkml': {'prefix_prefix': 'linkml',
                              'prefix_reference': 'https://w3id.org/linkml/'},
                   'omop': {'prefix_prefix': 'omop',
                            'prefix_reference': 'https://athena.ohdsi.org/search-terms/terms/'}},
      'source_file': 'src/omop_profiles/schema/omop_profiles.yaml',
-     'title': 'OMOP Semantic Templates'} )
+     'title': 'OMOP Profiles'} )
+
+class CdmTable(str, Enum):
+    """
+    OMOP CDM table to which a semantic template applies
+    """
+    observation = "observation"
+    measurement = "measurement"
+    drug_exposure = "drug_exposure"
+    procedure_occurrence = "procedure_occurrence"
+    condition_occurrence = "condition_occurrence"
+    visit_occurrence = "visit_occurrence"
+    device_exposure = "device_exposure"
+    specimen = "specimen"
+
 
 
 class OmopSemanticObject(ConfiguredBaseModel):
@@ -90,8 +105,8 @@ class OmopSemanticObject(ConfiguredBaseModel):
          'designates_type': True,
          'domain_of': ['OmopSemanticObject']} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
-         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopTemplate']} })
-    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject', 'OmopTemplate']} })
+         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopCdmProfile']} })
+    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject']} })
 
 
 class OmopGroup(OmopSemanticObject):
@@ -109,8 +124,8 @@ class OmopGroup(OmopSemanticObject):
          'domain_of': ['OmopSemanticObject'],
          'equals_string': 'OmopGroup'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
-         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopTemplate']} })
-    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject', 'OmopTemplate']} })
+         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopCdmProfile']} })
+    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject']} })
 
 
 class OmopConcept(OmopSemanticObject):
@@ -128,8 +143,8 @@ class OmopConcept(OmopSemanticObject):
          'domain_of': ['OmopSemanticObject'],
          'equals_string': 'OmopConcept'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
-         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopTemplate']} })
-    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject', 'OmopTemplate']} })
+         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopCdmProfile']} })
+    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject']} })
 
 
 class OmopEnum(OmopSemanticObject):
@@ -147,8 +162,8 @@ class OmopEnum(OmopSemanticObject):
          'domain_of': ['OmopSemanticObject'],
          'equals_string': 'OmopEnum'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
-         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopTemplate']} })
-    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject', 'OmopTemplate']} })
+         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopCdmProfile']} })
+    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject']} })
 
 
 class OmopValueSet(OmopSemanticObject):
@@ -166,8 +181,8 @@ class OmopValueSet(OmopSemanticObject):
          'domain_of': ['OmopSemanticObject'],
          'equals_string': 'OmopValueSet'} })
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
-         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopTemplate']} })
-    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject', 'OmopTemplate']} })
+         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopCdmProfile']} })
+    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject']} })
 
 
 class Concept(ConfiguredBaseModel):
@@ -186,8 +201,7 @@ class CDMValueSets(ConfiguredBaseModel):
     A collection of value sets used for defining permissible values for template slots in the OMOP CDM. This is intended to be used as a registry of value sets that can be referenced in template definitions.
 
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_named_sets',
-         'tree_root': True})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_named_sets'})
 
     valuesets: list[CDMValueSet] = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'valuesets', 'domain_of': ['CDMValueSets']} })
 
@@ -203,37 +217,27 @@ class CDMSemanticUnits(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_named_sets'})
 
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
-         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopTemplate']} })
+         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopCdmProfile']} })
     named_enumerators: Optional[list[OmopEnum]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'named_enumerators', 'domain_of': ['CDMSemanticUnits']} })
     named_concepts: Optional[list[OmopConcept]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'named_concepts', 'domain_of': ['CDMSemanticUnits']} })
     named_groups: Optional[list[OmopGroup]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'named_groups', 'domain_of': ['CDMSemanticUnits']} })
 
 
-class OmopTemplate(ConfiguredBaseModel):
-    """
-    A compositional semantic template describing how one or more OMOP concepts are represented in OMOP CDM tables (e.g. observation, measurement).
+class CDMProfiles(ConfiguredBaseModel):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_profiles',
+         'tree_root': True})
 
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_templates'})
+    profiles: Optional[list[OmopCdmProfile]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'profiles', 'domain_of': ['CDMProfiles']} })
+
+
+class OmopCdmProfile(ConfiguredBaseModel):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_profiles'})
 
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
-         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopTemplate']} })
-    role: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'role', 'domain_of': ['OmopTemplate']} })
-    entity_concept: Optional[Union[OmopConcept, OmopEnum, OmopGroup]] = Field(default=None, description="""Concept or group of concepts that may populate the CDM concept slot for this template. If a group or enumeration is provided, any member  of the group or enumeration is valid.
-""", json_schema_extra = { "linkml_meta": {'alias': 'entity_concept',
-         'any_of': [{'range': 'OmopGroup'},
-                    {'range': 'OmopEnum'},
-                    {'range': 'OmopConcept'}],
-         'domain_of': ['OmopTemplate']} })
-    value_concept: Optional[Union[OmopConcept, OmopEnum, OmopGroup]] = Field(default=None, description="""Group of permissible values for value slots (e.g. value_as_concept_id).
-""", json_schema_extra = { "linkml_meta": {'alias': 'value_concept',
-         'any_of': [{'range': 'OmopGroup'},
-                    {'range': 'OmopEnum'},
-                    {'range': 'OmopConcept'}],
-         'domain_of': ['OmopTemplate']} })
-    cdm_profile: str = Field(default=..., description="""Name of a registered OmopCdmProfile to use for this template.
-""", json_schema_extra = { "linkml_meta": {'alias': 'cdm_profile', 'domain_of': ['OmopTemplate']} })
-    notes: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'notes', 'domain_of': ['OmopSemanticObject', 'OmopTemplate']} })
+         'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopCdmProfile']} })
+    cdm_table: CdmTable = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'cdm_table', 'domain_of': ['OmopCdmProfile']} })
+    concept_slot: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'concept_slot', 'domain_of': ['OmopCdmProfile']} })
+    value_slot: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'value_slot', 'domain_of': ['OmopCdmProfile']} })
 
 
 # Model rebuild
@@ -247,5 +251,6 @@ Concept.model_rebuild()
 CDMValueSets.model_rebuild()
 CDMValueSet.model_rebuild()
 CDMSemanticUnits.model_rebuild()
-OmopTemplate.model_rebuild()
+CDMProfiles.model_rebuild()
+OmopCdmProfile.model_rebuild()
 

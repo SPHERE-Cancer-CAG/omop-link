@@ -1,9 +1,9 @@
 # Auto generated from omop_profiles.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-03T11:52:27
-# Schema: omop_templates
+# Generation date: 2026-03-03T12:07:07
+# Schema: omop_profiles
 #
-# id: https://athena.ohdsi.org/search-terms/terms/omop_templates
-# description: Core structure for OMOP concept identifiers used for complex semantic definitions, such as staging of neoplastic  disease through condition modifiers and their appropriate handling in episodes.
+# id: https://athena.ohdsi.org/search-terms/terms/omop_profiles
+# description: LinkML schema for defining the set of profiles, or 'shapes' of data that can be  validly populated with clinical endpoints in the OMOP CDM.  This is intended to be used for defining the permissible semantic structures that  can be used to populate the CDM, such as EAV form, or direct concept identifier slots.
 #
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -65,7 +65,7 @@ version = None
 # Namespaces
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 OMOP = CurieNamespace('omop', 'https://athena.ohdsi.org/search-terms/terms/')
-DEFAULT_ = OMOP
+DEFAULT_ = CurieNamespace('', 'https://athena.ohdsi.org/search-terms/terms/omop_profiles/')
 
 
 # Types
@@ -75,24 +75,35 @@ DEFAULT_ = OMOP
 
 
 @dataclass(repr=False)
-class OmopTemplate(YAMLRoot):
-    """
-    A compositional semantic template describing how one or more OMOP concepts are represented in OMOP CDM tables
-    (e.g. observation, measurement).
-    """
+class CDMProfiles(YAMLRoot):
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = OMOP["OmopTemplate"]
-    class_class_curie: ClassVar[str] = "omop:OmopTemplate"
-    class_name: ClassVar[str] = "OmopTemplate"
-    class_model_uri: ClassVar[URIRef] = OMOP.OmopTemplate
+    class_class_uri: ClassVar[URIRef] = OMOP["omop_profiles/CDMProfiles"]
+    class_class_curie: ClassVar[str] = "omop:omop_profiles/CDMProfiles"
+    class_name: ClassVar[str] = "CDMProfiles"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/CDMProfiles")
+
+    profiles: Optional[Union[Union[dict, "OmopCdmProfile"], list[Union[dict, "OmopCdmProfile"]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_dict(slot_name="profiles", slot_type=OmopCdmProfile, key_name="name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OmopCdmProfile(YAMLRoot):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = OMOP["omop_profiles/OmopCdmProfile"]
+    class_class_curie: ClassVar[str] = "omop:omop_profiles/OmopCdmProfile"
+    class_name: ClassVar[str] = "OmopCdmProfile"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopCdmProfile")
 
     name: str = None
-    role: str = None
-    cdm_profile: str = None
-    entity_concept: Optional[Union[dict, "OmopSemanticObject"]] = None
-    value_concept: Optional[Union[dict, "OmopSemanticObject"]] = None
-    notes: Optional[str] = None
+    cdm_table: Union[str, "CdmTable"] = None
+    concept_slot: str = None
+    value_slot: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -100,24 +111,18 @@ class OmopTemplate(YAMLRoot):
         if not isinstance(self.name, str):
             self.name = str(self.name)
 
-        if self._is_empty(self.role):
-            self.MissingRequiredField("role")
-        if not isinstance(self.role, str):
-            self.role = str(self.role)
+        if self._is_empty(self.cdm_table):
+            self.MissingRequiredField("cdm_table")
+        if not isinstance(self.cdm_table, CdmTable):
+            self.cdm_table = CdmTable(self.cdm_table)
 
-        if self._is_empty(self.cdm_profile):
-            self.MissingRequiredField("cdm_profile")
-        if not isinstance(self.cdm_profile, str):
-            self.cdm_profile = str(self.cdm_profile)
+        if self._is_empty(self.concept_slot):
+            self.MissingRequiredField("concept_slot")
+        if not isinstance(self.concept_slot, str):
+            self.concept_slot = str(self.concept_slot)
 
-        if self.entity_concept is not None and not isinstance(self.entity_concept, OmopSemanticObject):
-            self.entity_concept = OmopSemanticObject(**as_dict(self.entity_concept))
-
-        if self.value_concept is not None and not isinstance(self.value_concept, OmopSemanticObject):
-            self.value_concept = OmopSemanticObject(**as_dict(self.value_concept))
-
-        if self.notes is not None and not isinstance(self.notes, str):
-            self.notes = str(self.notes)
+        if self.value_slot is not None and not isinstance(self.value_slot, str):
+            self.value_slot = str(self.value_slot)
 
         super().__post_init__(**kwargs)
 
@@ -133,7 +138,7 @@ class OmopSemanticObject(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OMOP["OmopSemanticObject"]
     class_class_curie: ClassVar[str] = "omop:OmopSemanticObject"
     class_name: ClassVar[str] = "OmopSemanticObject"
-    class_model_uri: ClassVar[URIRef] = OMOP.OmopSemanticObject
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopSemanticObject")
 
     class_uri: str = None
     name: str = None
@@ -185,7 +190,7 @@ class OmopGroup(OmopSemanticObject):
     class_class_uri: ClassVar[URIRef] = OMOP["OmopGroup"]
     class_class_curie: ClassVar[str] = "omop:OmopGroup"
     class_name: ClassVar[str] = "OmopGroup"
-    class_model_uri: ClassVar[URIRef] = OMOP.OmopGroup
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopGroup")
 
     name: str = None
     class_uri: str = None
@@ -216,7 +221,7 @@ class OmopConcept(OmopSemanticObject):
     class_class_uri: ClassVar[URIRef] = OMOP["OmopConcept"]
     class_class_curie: ClassVar[str] = "omop:OmopConcept"
     class_name: ClassVar[str] = "OmopConcept"
-    class_model_uri: ClassVar[URIRef] = OMOP.OmopConcept
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopConcept")
 
     name: str = None
     class_uri: str = None
@@ -253,7 +258,7 @@ class OmopEnum(OmopSemanticObject):
     class_class_uri: ClassVar[URIRef] = OMOP["OmopEnum"]
     class_class_curie: ClassVar[str] = "omop:OmopEnum"
     class_name: ClassVar[str] = "OmopEnum"
-    class_model_uri: ClassVar[URIRef] = OMOP.OmopEnum
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopEnum")
 
     name: str = None
     enum_members: Union[Union[dict, "Concept"], list[Union[dict, "Concept"]]] = None
@@ -287,7 +292,7 @@ class OmopValueSet(OmopSemanticObject):
     class_class_uri: ClassVar[URIRef] = OMOP["OmopValueSet"]
     class_class_curie: ClassVar[str] = "omop:OmopValueSet"
     class_name: ClassVar[str] = "OmopValueSet"
-    class_model_uri: ClassVar[URIRef] = OMOP.OmopValueSet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopValueSet")
 
     name: str = None
     class_uri: str = None
@@ -318,7 +323,7 @@ class Concept(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OMOP["Concept"]
     class_class_curie: ClassVar[str] = "omop:Concept"
     class_name: ClassVar[str] = "Concept"
-    class_model_uri: ClassVar[URIRef] = OMOP.Concept
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/Concept")
 
     concept_id: Optional[int] = None
     label: Optional[str] = None
@@ -344,7 +349,7 @@ class CDMValueSets(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OMOP["omop_named_sets/CDMValueSets"]
     class_class_curie: ClassVar[str] = "omop:omop_named_sets/CDMValueSets"
     class_name: ClassVar[str] = "CDMValueSets"
-    class_model_uri: ClassVar[URIRef] = OMOP.CDMValueSets
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/CDMValueSets")
 
     valuesets: Union[Union[dict, "CDMValueSet"], list[Union[dict, "CDMValueSet"]]] = None
 
@@ -363,7 +368,7 @@ class CDMValueSet(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OMOP["omop_named_sets/CDMValueSet"]
     class_class_curie: ClassVar[str] = "omop:omop_named_sets/CDMValueSet"
     class_name: ClassVar[str] = "CDMValueSet"
-    class_model_uri: ClassVar[URIRef] = OMOP.CDMValueSet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/CDMValueSet")
 
     valueset_name: str = None
     valueset_members: Union[Union[dict, OmopSemanticObject], list[Union[dict, OmopSemanticObject]]] = None
@@ -388,7 +393,7 @@ class CDMSemanticUnits(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = OMOP["omop_named_sets/CDMSemanticUnits"]
     class_class_curie: ClassVar[str] = "omop:omop_named_sets/CDMSemanticUnits"
     class_name: ClassVar[str] = "CDMSemanticUnits"
-    class_model_uri: ClassVar[URIRef] = OMOP.CDMSemanticUnits
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/CDMSemanticUnits")
 
     name: str = None
     named_enumerators: Optional[Union[Union[dict, OmopEnum], list[Union[dict, OmopEnum]]]] = empty_list()
@@ -411,77 +416,93 @@ class CDMSemanticUnits(YAMLRoot):
 
 
 # Enumerations
+class CdmTable(EnumDefinitionImpl):
+    """
+    OMOP CDM table to which a semantic template applies
+    """
+    observation = PermissibleValue(text="observation")
+    measurement = PermissibleValue(text="measurement")
+    drug_exposure = PermissibleValue(text="drug_exposure")
+    procedure_occurrence = PermissibleValue(text="procedure_occurrence")
+    condition_occurrence = PermissibleValue(text="condition_occurrence")
+    visit_occurrence = PermissibleValue(text="visit_occurrence")
+    device_exposure = PermissibleValue(text="device_exposure")
+    specimen = PermissibleValue(text="specimen")
 
+    _defn = EnumDefinition(
+        name="CdmTable",
+        description="OMOP CDM table to which a semantic template applies",
+    )
 
 # Slots
 class slots:
     pass
 
-slots.role = Slot(uri=OMOP.role, name="role", curie=OMOP.curie('role'),
-                   model_uri=OMOP.role, domain=None, range=str)
+slots.profiles = Slot(uri=DEFAULT_.profiles, name="profiles", curie=DEFAULT_.curie('profiles'),
+                   model_uri=DEFAULT_.profiles, domain=None, range=Optional[Union[Union[dict, OmopCdmProfile], list[Union[dict, OmopCdmProfile]]]])
 
-slots.entity_concept = Slot(uri=OMOP.entity_concept, name="entity_concept", curie=OMOP.curie('entity_concept'),
-                   model_uri=OMOP.entity_concept, domain=None, range=Optional[Union[dict, OmopSemanticObject]])
+slots.cdm_table = Slot(uri=DEFAULT_.cdm_table, name="cdm_table", curie=DEFAULT_.curie('cdm_table'),
+                   model_uri=DEFAULT_.cdm_table, domain=None, range=Union[str, "CdmTable"])
 
-slots.value_concept = Slot(uri=OMOP.value_concept, name="value_concept", curie=OMOP.curie('value_concept'),
-                   model_uri=OMOP.value_concept, domain=None, range=Optional[Union[dict, OmopSemanticObject]])
+slots.concept_slot = Slot(uri=DEFAULT_.concept_slot, name="concept_slot", curie=DEFAULT_.curie('concept_slot'),
+                   model_uri=DEFAULT_.concept_slot, domain=None, range=str)
 
-slots.cdm_profile = Slot(uri=OMOP.cdm_profile, name="cdm_profile", curie=OMOP.curie('cdm_profile'),
-                   model_uri=OMOP.cdm_profile, domain=None, range=str)
+slots.value_slot = Slot(uri=DEFAULT_.value_slot, name="value_slot", curie=DEFAULT_.curie('value_slot'),
+                   model_uri=DEFAULT_.value_slot, domain=None, range=Optional[str])
 
 slots.name = Slot(uri=OMOP.name, name="name", curie=OMOP.curie('name'),
-                   model_uri=OMOP.name, domain=None, range=str)
+                   model_uri=DEFAULT_.name, domain=None, range=str)
 
 slots.concept_id = Slot(uri=OMOP.concept_id, name="concept_id", curie=OMOP.curie('concept_id'),
-                   model_uri=OMOP.concept_id, domain=None, range=Optional[int])
+                   model_uri=DEFAULT_.concept_id, domain=None, range=Optional[int])
 
 slots.label = Slot(uri=OMOP.label, name="label", curie=OMOP.curie('label'),
-                   model_uri=OMOP.label, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.label, domain=None, range=Optional[str])
 
 slots.parent_concepts = Slot(uri=OMOP.parent_concepts, name="parent_concepts", curie=OMOP.curie('parent_concepts'),
-                   model_uri=OMOP.parent_concepts, domain=None, range=Optional[Union[Union[dict, Concept], list[Union[dict, Concept]]]])
+                   model_uri=DEFAULT_.parent_concepts, domain=None, range=Optional[Union[Union[dict, Concept], list[Union[dict, Concept]]]])
 
 slots.enum_members = Slot(uri=OMOP.enum_members, name="enum_members", curie=OMOP.curie('enum_members'),
-                   model_uri=OMOP.enum_members, domain=None, range=Union[Union[dict, Concept], list[Union[dict, Concept]]])
+                   model_uri=DEFAULT_.enum_members, domain=None, range=Union[Union[dict, Concept], list[Union[dict, Concept]]])
 
 slots.members = Slot(uri=OMOP.members, name="members", curie=OMOP.curie('members'),
-                   model_uri=OMOP.members, domain=None, range=Optional[Union[Union[dict, OmopSemanticObject], list[Union[dict, OmopSemanticObject]]]])
+                   model_uri=DEFAULT_.members, domain=None, range=Optional[Union[Union[dict, OmopSemanticObject], list[Union[dict, OmopSemanticObject]]]])
 
 slots.notes = Slot(uri=OMOP.notes, name="notes", curie=OMOP.curie('notes'),
-                   model_uri=OMOP.notes, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.notes, domain=None, range=Optional[str])
 
 slots.class_uri = Slot(uri=OMOP.class_uri, name="class_uri", curie=OMOP.curie('class_uri'),
-                   model_uri=OMOP.class_uri, domain=None, range=str)
+                   model_uri=DEFAULT_.class_uri, domain=None, range=str)
 
 slots.named_enumerators = Slot(uri=OMOP['omop_named_sets/named_enumerators'], name="named_enumerators", curie=OMOP.curie('omop_named_sets/named_enumerators'),
-                   model_uri=OMOP.named_enumerators, domain=None, range=Optional[Union[Union[dict, OmopEnum], list[Union[dict, OmopEnum]]]])
+                   model_uri=DEFAULT_.named_enumerators, domain=None, range=Optional[Union[Union[dict, OmopEnum], list[Union[dict, OmopEnum]]]])
 
 slots.named_concepts = Slot(uri=OMOP['omop_named_sets/named_concepts'], name="named_concepts", curie=OMOP.curie('omop_named_sets/named_concepts'),
-                   model_uri=OMOP.named_concepts, domain=None, range=Optional[Union[Union[dict, OmopConcept], list[Union[dict, OmopConcept]]]])
+                   model_uri=DEFAULT_.named_concepts, domain=None, range=Optional[Union[Union[dict, OmopConcept], list[Union[dict, OmopConcept]]]])
 
 slots.named_valuesets = Slot(uri=OMOP['omop_named_sets/named_valuesets'], name="named_valuesets", curie=OMOP.curie('omop_named_sets/named_valuesets'),
-                   model_uri=OMOP.named_valuesets, domain=None, range=Optional[Union[Union[dict, OmopValueSet], list[Union[dict, OmopValueSet]]]])
+                   model_uri=DEFAULT_.named_valuesets, domain=None, range=Optional[Union[Union[dict, OmopValueSet], list[Union[dict, OmopValueSet]]]])
 
 slots.named_groups = Slot(uri=OMOP['omop_named_sets/named_groups'], name="named_groups", curie=OMOP.curie('omop_named_sets/named_groups'),
-                   model_uri=OMOP.named_groups, domain=None, range=Optional[Union[Union[dict, OmopGroup], list[Union[dict, OmopGroup]]]])
+                   model_uri=DEFAULT_.named_groups, domain=None, range=Optional[Union[Union[dict, OmopGroup], list[Union[dict, OmopGroup]]]])
 
 slots.valueset_name = Slot(uri=OMOP['omop_named_sets/valueset_name'], name="valueset_name", curie=OMOP.curie('omop_named_sets/valueset_name'),
-                   model_uri=OMOP.valueset_name, domain=None, range=str)
+                   model_uri=DEFAULT_.valueset_name, domain=None, range=str)
 
 slots.valueset_members = Slot(uri=OMOP['omop_named_sets/valueset_members'], name="valueset_members", curie=OMOP.curie('omop_named_sets/valueset_members'),
-                   model_uri=OMOP.valueset_members, domain=None, range=Union[Union[dict, OmopSemanticObject], list[Union[dict, OmopSemanticObject]]])
+                   model_uri=DEFAULT_.valueset_members, domain=None, range=Union[Union[dict, OmopSemanticObject], list[Union[dict, OmopSemanticObject]]])
 
 slots.valuesets = Slot(uri=OMOP['omop_named_sets/valuesets'], name="valuesets", curie=OMOP.curie('omop_named_sets/valuesets'),
-                   model_uri=OMOP.valuesets, domain=None, range=Union[Union[dict, CDMValueSet], list[Union[dict, CDMValueSet]]])
+                   model_uri=DEFAULT_.valuesets, domain=None, range=Union[Union[dict, CDMValueSet], list[Union[dict, CDMValueSet]]])
 
 slots.OmopGroup_class_uri = Slot(uri=OMOP.class_uri, name="OmopGroup_class_uri", curie=OMOP.curie('class_uri'),
-                   model_uri=OMOP.OmopGroup_class_uri, domain=OmopGroup, range=str)
+                   model_uri=DEFAULT_.OmopGroup_class_uri, domain=OmopGroup, range=str)
 
 slots.OmopConcept_class_uri = Slot(uri=OMOP.class_uri, name="OmopConcept_class_uri", curie=OMOP.curie('class_uri'),
-                   model_uri=OMOP.OmopConcept_class_uri, domain=OmopConcept, range=str)
+                   model_uri=DEFAULT_.OmopConcept_class_uri, domain=OmopConcept, range=str)
 
 slots.OmopEnum_class_uri = Slot(uri=OMOP.class_uri, name="OmopEnum_class_uri", curie=OMOP.curie('class_uri'),
-                   model_uri=OMOP.OmopEnum_class_uri, domain=OmopEnum, range=str)
+                   model_uri=DEFAULT_.OmopEnum_class_uri, domain=OmopEnum, range=str)
 
 slots.OmopValueSet_class_uri = Slot(uri=OMOP.class_uri, name="OmopValueSet_class_uri", curie=OMOP.curie('class_uri'),
-                   model_uri=OMOP.OmopValueSet_class_uri, domain=OmopValueSet, range=str)
+                   model_uri=DEFAULT_.OmopValueSet_class_uri, domain=OmopValueSet, range=str)
