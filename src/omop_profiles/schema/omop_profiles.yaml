@@ -10,6 +10,7 @@ description: >
 imports:
   - omop_semantic_base
   - omop_named_sets
+  - omop_templates
 
 prefixes:
   linkml: https://w3id.org/linkml/

@@ -1,5 +1,5 @@
 # Auto generated from omop_profiles.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-03T12:07:07
+# Generation date: 2026-03-03T13:41:31
 # Schema: omop_profiles
 #
 # id: https://athena.ohdsi.org/search-terms/terms/omop_profiles
@@ -415,6 +415,77 @@ class CDMSemanticUnits(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass(repr=False)
+class OmopTemplates(YAMLRoot):
+    """
+    A collection of OMOP semantic templates for defining complex semantic structures in the OMOP CDM. This is intended
+    to be used as a registry of templates that can be referenced in template definitions.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = OMOP["OmopTemplates"]
+    class_class_curie: ClassVar[str] = "omop:OmopTemplates"
+    class_name: ClassVar[str] = "OmopTemplates"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopTemplates")
+
+    templates: Union[Union[dict, "OmopTemplate"], list[Union[dict, "OmopTemplate"]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.templates):
+            self.MissingRequiredField("templates")
+        self._normalize_inlined_as_dict(slot_name="templates", slot_type=OmopTemplate, key_name="name", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class OmopTemplate(YAMLRoot):
+    """
+    A compositional semantic template describing how one or more OMOP concepts are represented in OMOP CDM tables
+    (e.g. observation, measurement).
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = OMOP["OmopTemplate"]
+    class_class_curie: ClassVar[str] = "omop:OmopTemplate"
+    class_name: ClassVar[str] = "OmopTemplate"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopTemplate")
+
+    name: str = None
+    role: str = None
+    cdm_profile: str = None
+    entity_concept: Optional[Union[dict, OmopSemanticObject]] = None
+    value_concept: Optional[Union[dict, OmopSemanticObject]] = None
+    notes: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.name):
+            self.MissingRequiredField("name")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self._is_empty(self.role):
+            self.MissingRequiredField("role")
+        if not isinstance(self.role, str):
+            self.role = str(self.role)
+
+        if self._is_empty(self.cdm_profile):
+            self.MissingRequiredField("cdm_profile")
+        if not isinstance(self.cdm_profile, str):
+            self.cdm_profile = str(self.cdm_profile)
+
+        if self.entity_concept is not None and not isinstance(self.entity_concept, OmopSemanticObject):
+            self.entity_concept = OmopSemanticObject(**as_dict(self.entity_concept))
+
+        if self.value_concept is not None and not isinstance(self.value_concept, OmopSemanticObject):
+            self.value_concept = OmopSemanticObject(**as_dict(self.value_concept))
+
+        if self.notes is not None and not isinstance(self.notes, str):
+            self.notes = str(self.notes)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 class CdmTable(EnumDefinitionImpl):
     """
@@ -494,6 +565,21 @@ slots.valueset_members = Slot(uri=OMOP['omop_named_sets/valueset_members'], name
 
 slots.valuesets = Slot(uri=OMOP['omop_named_sets/valuesets'], name="valuesets", curie=OMOP.curie('omop_named_sets/valuesets'),
                    model_uri=DEFAULT_.valuesets, domain=None, range=Union[Union[dict, CDMValueSet], list[Union[dict, CDMValueSet]]])
+
+slots.role = Slot(uri=OMOP.role, name="role", curie=OMOP.curie('role'),
+                   model_uri=DEFAULT_.role, domain=None, range=str)
+
+slots.entity_concept = Slot(uri=OMOP.entity_concept, name="entity_concept", curie=OMOP.curie('entity_concept'),
+                   model_uri=DEFAULT_.entity_concept, domain=None, range=Optional[Union[dict, OmopSemanticObject]])
+
+slots.value_concept = Slot(uri=OMOP.value_concept, name="value_concept", curie=OMOP.curie('value_concept'),
+                   model_uri=DEFAULT_.value_concept, domain=None, range=Optional[Union[dict, OmopSemanticObject]])
+
+slots.cdm_profile = Slot(uri=OMOP.cdm_profile, name="cdm_profile", curie=OMOP.curie('cdm_profile'),
+                   model_uri=DEFAULT_.cdm_profile, domain=None, range=str)
+
+slots.templates = Slot(uri=OMOP.templates, name="templates", curie=OMOP.curie('templates'),
+                   model_uri=DEFAULT_.templates, domain=None, range=Union[Union[dict, OmopTemplate], list[Union[dict, OmopTemplate]]])
 
 slots.OmopGroup_class_uri = Slot(uri=OMOP.class_uri, name="OmopGroup_class_uri", curie=OMOP.curie('class_uri'),
                    model_uri=DEFAULT_.OmopGroup_class_uri, domain=OmopGroup, range=str)

@@ -26,7 +26,6 @@ classes:
       This is intended to be used as a registry of templates that can be referenced in template definitions.
     slots:
       - templates
-    tree_root: true
   OmopTemplate:
     description: >
       A compositional semantic template describing how one or more OMOP concepts
