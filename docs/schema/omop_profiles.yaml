@@ -8,6 +8,8 @@ title: OMOP Profiles
 id: https://athena.ohdsi.org/search-terms/terms/omop_profiles
 imports:
 - omop_semantic_base
+- omop_named_sets
+- omop_templates
 - linkml:types
 license: https://creativecommons.org/publicdomain/zero/1.0/
 prefixes:
@@ -358,10 +360,12 @@ slots:
     definition_uri: https://athena.ohdsi.org/search-terms/terms/name
     from_schema: https://athena.ohdsi.org/search-terms/terms/omop_semantic_base
     slot_uri: omop:name
-    owner: OmopSemanticObject
+    owner: OmopTemplate
     domain_of:
     - OmopCdmProfile
     - OmopSemanticObject
+    - CDMSemanticUnits
+    - OmopTemplate
     range: string
     required: true
   concept_id:
@@ -426,9 +430,10 @@ slots:
     definition_uri: https://athena.ohdsi.org/search-terms/terms/notes
     from_schema: https://athena.ohdsi.org/search-terms/terms/omop_semantic_base
     slot_uri: omop:notes
-    owner: OmopSemanticObject
+    owner: OmopTemplate
     domain_of:
     - OmopSemanticObject
+    - OmopTemplate
     range: string
     required: false
   class_uri:
@@ -442,6 +447,156 @@ slots:
     - OmopSemanticObject
     range: string
     required: true
+  named_enumerators:
+    name: named_enumerators
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/named_enumerators
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slot_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/named_enumerators
+    owner: CDMSemanticUnits
+    domain_of:
+    - CDMSemanticUnits
+    range: OmopEnum
+    required: false
+    multivalued: true
+    inlined: true
+  named_concepts:
+    name: named_concepts
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/named_concepts
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slot_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/named_concepts
+    owner: CDMSemanticUnits
+    domain_of:
+    - CDMSemanticUnits
+    range: OmopConcept
+    required: false
+    multivalued: true
+    inlined: true
+  named_valuesets:
+    name: named_valuesets
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/named_valuesets
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slot_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/named_valuesets
+    range: OmopValueSet
+    required: false
+    multivalued: true
+    inlined: true
+  named_groups:
+    name: named_groups
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/named_groups
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slot_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/named_groups
+    owner: CDMSemanticUnits
+    domain_of:
+    - CDMSemanticUnits
+    range: OmopGroup
+    required: false
+    multivalued: true
+    inlined: true
+  valueset_name:
+    name: valueset_name
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/valueset_name
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slot_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/valueset_name
+    owner: CDMValueSet
+    domain_of:
+    - CDMValueSet
+    range: string
+    required: true
+  valueset_members:
+    name: valueset_members
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/valueset_members
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slot_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/valueset_members
+    owner: CDMValueSet
+    domain_of:
+    - CDMValueSet
+    range: OmopSemanticObject
+    required: true
+    multivalued: true
+    inlined: true
+  valuesets:
+    name: valuesets
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/valuesets
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slot_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/valuesets
+    owner: CDMValueSets
+    domain_of:
+    - CDMValueSets
+    range: CDMValueSet
+    required: true
+    multivalued: true
+    inlined: true
+  role:
+    name: role
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/role
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_templates
+    slot_uri: omop:role
+    owner: OmopTemplate
+    domain_of:
+    - OmopTemplate
+    range: string
+    required: true
+  entity_concept:
+    name: entity_concept
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/entity_concept
+    description: 'Concept or group of concepts that may populate the CDM concept slot
+      for this template. If a group or enumeration is provided, any member  of the
+      group or enumeration is valid.
+
+      '
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_templates
+    slot_uri: omop:entity_concept
+    owner: OmopTemplate
+    domain_of:
+    - OmopTemplate
+    range: OmopSemanticObject
+    inlined: true
+    any_of:
+    - range: OmopGroup
+    - range: OmopEnum
+    - range: OmopConcept
+  value_concept:
+    name: value_concept
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/value_concept
+    description: 'Group of permissible values for value slots (e.g. value_as_concept_id).
+
+      '
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_templates
+    slot_uri: omop:value_concept
+    owner: OmopTemplate
+    domain_of:
+    - OmopTemplate
+    range: OmopSemanticObject
+    inlined: true
+    any_of:
+    - range: OmopGroup
+    - range: OmopEnum
+    - range: OmopConcept
+  cdm_profile:
+    name: cdm_profile
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/cdm_profile
+    description: 'Name of a registered OmopCdmProfile to use for this template.
+
+      '
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_templates
+    slot_uri: omop:cdm_profile
+    owner: OmopTemplate
+    domain_of:
+    - OmopTemplate
+    range: string
+    required: true
+  templates:
+    name: templates
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/templates
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_templates
+    slot_uri: omop:templates
+    owner: OmopTemplates
+    domain_of:
+    - OmopTemplates
+    range: OmopTemplate
+    required: true
+    multivalued: true
+    inlined: true
   OmopGroup_class_uri:
     name: OmopGroup_class_uri
     definition_uri: https://athena.ohdsi.org/search-terms/terms/class_uri
@@ -640,9 +795,67 @@ classes:
     - concept_id
     - label
     class_uri: omop:Concept
+  CDMValueSets:
+    name: CDMValueSets
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/CDMValueSets
+    description: 'A collection of value sets used for defining permissible values
+      for template slots in the OMOP CDM. This is intended to be used as a registry
+      of value sets that can be referenced in template definitions.
+
+      '
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slots:
+    - valuesets
+    class_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/CDMValueSets
+  CDMValueSet:
+    name: CDMValueSet
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/CDMValueSet
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slots:
+    - valueset_name
+    - valueset_members
+    class_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/CDMValueSet
+  CDMSemanticUnits:
+    name: CDMSemanticUnits
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/CDMSemanticUnits
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
+    slots:
+    - name
+    - named_enumerators
+    - named_concepts
+    - named_groups
+    class_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/CDMSemanticUnits
+  OmopTemplates:
+    name: OmopTemplates
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/OmopTemplates
+    description: 'A collection of OMOP semantic templates for defining complex semantic
+      structures in the OMOP CDM. This is intended to be used as a registry of templates
+      that can be referenced in template definitions.
+
+      '
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_templates
+    slots:
+    - templates
+    class_uri: omop:OmopTemplates
+  OmopTemplate:
+    name: OmopTemplate
+    definition_uri: https://athena.ohdsi.org/search-terms/terms/OmopTemplate
+    description: 'A compositional semantic template describing how one or more OMOP
+      concepts are represented in OMOP CDM tables (e.g. observation, measurement).
+
+      '
+    from_schema: https://athena.ohdsi.org/search-terms/terms/omop_templates
+    slots:
+    - name
+    - role
+    - entity_concept
+    - value_concept
+    - cdm_profile
+    - notes
+    class_uri: omop:OmopTemplate
 metamodel_version: 1.7.0
 source_file: omop_profiles.yaml
-source_file_date: '2026-03-03T12:02:12'
-source_file_size: 1256
-generation_date: '2026-03-03T12:02:23'
+source_file_date: '2026-03-03T12:10:38'
+source_file_size: 1295
+generation_date: '2026-03-03T13:42:56'
 
