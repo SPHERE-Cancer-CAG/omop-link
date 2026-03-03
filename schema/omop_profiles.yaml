@@ -669,6 +669,10 @@ classes:
   CDMProfiles:
     name: CDMProfiles
     definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_profiles/CDMProfiles
+    description: 'A collection of OMOP CDM profiles describing the permissible semantic
+      structures for populating the CDM.
+
+      '
     from_schema: https://athena.ohdsi.org/search-terms/terms/omop_profiles
     slots:
     - profiles
@@ -677,6 +681,12 @@ classes:
   OmopCdmProfile:
     name: OmopCdmProfile
     definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopCdmProfile
+    description: 'A compositional profile describing how a particular clinical endpoint
+      is represented in the CDM.  This defines where concepts and values for a particular
+      endpoint (e.g. blood pressure measurement) are represented in a particular CDM
+      table (e.g. observation/value_as_number, measurement/measurement_concept_id).
+
+      '
     from_schema: https://athena.ohdsi.org/search-terms/terms/omop_profiles
     slots:
     - name
@@ -799,8 +809,7 @@ classes:
     name: CDMValueSets
     definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/CDMValueSets
     description: 'A collection of value sets used for defining permissible values
-      for template slots in the OMOP CDM. This is intended to be used as a registry
-      of value sets that can be referenced in template definitions.
+      for template slots in the OMOP CDM.
 
       '
     from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
@@ -810,6 +819,13 @@ classes:
   CDMValueSet:
     name: CDMValueSet
     definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/CDMValueSet
+    description: 'A labelled value set defining a set of permissible values for a
+      particular template slot in the OMOP CDM. This is the grouper class through
+      which you may bring together a combination of lower level semantic objects (individual
+      concepts, hierarchical groups, or enumerations) to span the set of permissible
+      values for a template slot.
+
+      '
     from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
     slots:
     - valueset_name
@@ -818,6 +834,11 @@ classes:
   CDMSemanticUnits:
     name: CDMSemanticUnits
     definition_uri: https://athena.ohdsi.org/search-terms/terms/omop_named_sets/CDMSemanticUnits
+    description: 'A collection of named semantic units used for defining permissible
+      values for template slots in the OMOP CDM. This is intended to be used as a
+      registry of labelled units that can be referenced in template definitions.
+
+      '
     from_schema: https://athena.ohdsi.org/search-terms/terms/omop_named_sets
     slots:
     - name
@@ -855,7 +876,7 @@ classes:
     class_uri: omop:OmopTemplate
 metamodel_version: 1.7.0
 source_file: omop_profiles.yaml
-source_file_date: '2026-03-03T02:43:26'
-source_file_size: 1295
-generation_date: '2026-03-03T02:43:34'
+source_file_date: '2026-03-03T02:48:52'
+source_file_size: 1773
+generation_date: '2026-03-03T02:49:02'
 

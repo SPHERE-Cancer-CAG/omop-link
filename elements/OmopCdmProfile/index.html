@@ -249,6 +249,8 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-omopcdmprofile">Class: OmopCdmProfile</h1>
+<p><em>A compositional profile describing how a particular clinical endpoint is represented in the CDM.  This defines where concepts and values for a particular endpoint (e.g. blood pressure measurement) are represented in a particular CDM table (e.g. observation/value_as_number, measurement/measurement_concept_id).</em></p>
+<p>__</p>
 <p>URI: <a href="https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopCdmProfile">https://athena.ohdsi.org/search-terms/terms/omop_profiles/OmopCdmProfile</a></p>
 <pre class="mermaid"><code> classDiagram
     class OmopCdmProfile
@@ -357,6 +359,12 @@
 <h3 id="direct">Direct</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopCdmProfile</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'A</span><span class="nv"> </span><span class="s">compositional</span><span class="nv"> </span><span class="s">profile</span><span class="nv"> </span><span class="s">describing</span><span class="nv"> </span><span class="s">how</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">particular</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">endpoint</span>
+<span class="w">  </span><span class="s">is</span><span class="nv"> </span><span class="s">represented</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">CDM.</span><span class="nv">  </span><span class="s">This</span><span class="nv"> </span><span class="s">defines</span><span class="nv"> </span><span class="s">where</span><span class="nv"> </span><span class="s">concepts</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">values</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">particular</span>
+<span class="w">  </span><span class="s">endpoint</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">blood</span><span class="nv"> </span><span class="s">pressure</span><span class="nv"> </span><span class="s">measurement)</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">represented</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">particular</span><span class="nv"> </span><span class="s">CDM</span><span class="nv"> </span><span class="s">table</span>
+<span class="w">  </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">observation/value_as_number,</span><span class="nv"> </span><span class="s">measurement/measurement_concept_id).</span>
+
+<span class="w">  </span><span class="s">'</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://athena.ohdsi.org/search-terms/terms/omop_profiles</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
@@ -368,6 +376,12 @@
 <h3 id="induced">Induced</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopCdmProfile</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'A</span><span class="nv"> </span><span class="s">compositional</span><span class="nv"> </span><span class="s">profile</span><span class="nv"> </span><span class="s">describing</span><span class="nv"> </span><span class="s">how</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">particular</span><span class="nv"> </span><span class="s">clinical</span><span class="nv"> </span><span class="s">endpoint</span>
+<span class="w">  </span><span class="s">is</span><span class="nv"> </span><span class="s">represented</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">CDM.</span><span class="nv">  </span><span class="s">This</span><span class="nv"> </span><span class="s">defines</span><span class="nv"> </span><span class="s">where</span><span class="nv"> </span><span class="s">concepts</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">values</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">particular</span>
+<span class="w">  </span><span class="s">endpoint</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">blood</span><span class="nv"> </span><span class="s">pressure</span><span class="nv"> </span><span class="s">measurement)</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">represented</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">particular</span><span class="nv"> </span><span class="s">CDM</span><span class="nv"> </span><span class="s">table</span>
+<span class="w">  </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">observation/value_as_number,</span><span class="nv"> </span><span class="s">measurement/measurement_concept_id).</span>
+
+<span class="w">  </span><span class="s">'</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://athena.ohdsi.org/search-terms/terms/omop_profiles</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span>
