@@ -67,7 +67,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'omop',
                     'semantic definitions, such as staging of neoplastic  disease '
                     'through condition modifiers and their appropriate handling in '
                     'episodes.\n',
-     'id': 'https://example.org/omop_semantics',
+     'id': 'https://athena.ohdsi.org/search-terms/terms/omop_templates',
      'imports': ['linkml:types', 'omop_semantic_base', 'omop_named_sets'],
      'name': 'omop_templates',
      'prefixes': {'linkml': {'prefix_prefix': 'linkml',
@@ -83,7 +83,8 @@ class OmopSemanticObject(ConfiguredBaseModel):
     Abstract base class for OMOP semantic objects.  Used to represent concepts, groups of concepts, enumerations of concepts, and value sets of concepts in the context of defining complex semantic structures for the OMOP CDM.
 
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True, 'from_schema': 'https://example.org/omop_semantic_base'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
+         'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_semantic_base'})
 
     class_uri: Literal["OmopSemanticObject"] = Field(default="OmopSemanticObject", json_schema_extra = { "linkml_meta": {'alias': 'class_uri',
          'designates_type': True,
@@ -98,7 +99,7 @@ class OmopGroup(OmopSemanticObject):
     Named group of OMOP concepts defined by their membership in a particular group, such  as hierarchy and / or domain. Importantly, this is not a static definition and if the vocabularies are updated, the membership of these groups may change. This is intended to be used for defining sets of concepts that are used in semantic definitions, such as the set of all  T stage concepts.
 
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantic_base',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_semantic_base',
          'slot_usage': {'class_uri': {'equals_string': 'OmopGroup',
                                       'name': 'class_uri'}}})
 
@@ -116,7 +117,7 @@ class OmopConcept(OmopSemanticObject):
     """
     A single labelled OMOP concept for use in higher level semantic annotations
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantic_base',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_semantic_base',
          'slot_usage': {'class_uri': {'equals_string': 'OmopConcept',
                                       'name': 'class_uri'}}})
 
@@ -136,7 +137,7 @@ class OmopEnum(OmopSemanticObject):
     Enumeration (static) of permissible values for a particular slot. This is intended to be used for defining slots that have a fixed set of permissible values, such as the staging axis (T, N, M, Group). This will not update dynamically with vocabulary updates, so should be used for concepts that are  short lists and not expected to change over time.
 
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantic_base',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_semantic_base',
          'slot_usage': {'class_uri': {'equals_string': 'OmopEnum',
                                       'name': 'class_uri'}}})
 
@@ -155,7 +156,7 @@ class OmopValueSet(OmopSemanticObject):
     A semantic grouping of mixed types of permissible values for a template slot. Members may be OmopConcepts, OmopGroups, or OmopEnums. This represents a registry-level value domain, not a direct OMOP structure.
 
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantic_base',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_semantic_base',
          'slot_usage': {'class_uri': {'equals_string': 'OmopValueSet',
                                       'name': 'class_uri'}}})
 
@@ -174,7 +175,7 @@ class Concept(ConfiguredBaseModel):
     Concept that serves as a member of a semantic object. This is intended to be used for defining the permissible values of an OmopSemanticObject, such as the members of an OmopGroup or OmopEnum.  The concept_id and label slots are used to specify the concept_id and label of the concept that serves as a  member of the enumeration.
 
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantic_base'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_semantic_base'})
 
     concept_id: Optional[int] = Field(default=None, description="""OMOP concept_id""", json_schema_extra = { "linkml_meta": {'alias': 'concept_id', 'domain_of': ['OmopConcept', 'Concept']} })
     label: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'label', 'domain_of': ['OmopConcept', 'Concept']} })
@@ -185,20 +186,21 @@ class CDMValueSets(ConfiguredBaseModel):
     A collection of value sets used for defining permissible values for template slots in the OMOP CDM. This is intended to be used as a registry of value sets that can be referenced in template definitions.
 
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_named_sets', 'tree_root': True})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_named_sets',
+         'tree_root': True})
 
     valuesets: list[CDMValueSet] = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'valuesets', 'domain_of': ['CDMValueSets']} })
 
 
 class CDMValueSet(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_named_sets'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_named_sets'})
 
     valueset_name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'valueset_name', 'domain_of': ['CDMValueSet']} })
     valueset_members: list[Union[OmopSemanticObject,OmopGroup,OmopConcept,OmopEnum,OmopValueSet]] = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'valueset_members', 'domain_of': ['CDMValueSet']} })
 
 
 class CDMSemanticUnits(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_named_sets'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_named_sets'})
 
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
          'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopTemplate']} })
@@ -212,7 +214,7 @@ class OmopTemplate(ConfiguredBaseModel):
     A compositional semantic template describing how one or more OMOP concepts are represented in OMOP CDM tables (e.g. observation, measurement).
 
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://example.org/omop_semantics'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_templates'})
 
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
          'domain_of': ['OmopSemanticObject', 'CDMSemanticUnits', 'OmopTemplate']} })
