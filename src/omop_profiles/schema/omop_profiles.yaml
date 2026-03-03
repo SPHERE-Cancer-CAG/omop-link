@@ -17,6 +17,7 @@ default_range: string
 imports:
   - linkml:types
   - omop_semantic_base
+  - omop_named_sets
 
 classes:
   OmopTemplate:
