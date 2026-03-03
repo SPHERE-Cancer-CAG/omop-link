@@ -428,7 +428,7 @@
 
 
 <h1 id="slot-class_uri">Slot: class_uri</h1>
-<p>URI: <a href="https://example.org/omop_named_sets/class_uri">https://example.org/omop_named_sets/class_uri</a>
+<p>URI: <a href="https://athena.ohdsi.org/search-terms/terms/omop_profiles/class_uri">https://athena.ohdsi.org/search-terms/terms/omop_profiles/class_uri</a>
 Alias: class_uri</p>
 <!-- no inheritance hierarchy -->
 
@@ -448,8 +448,13 @@ Alias: class_uri</p>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../OmopConcept/">OmopConcept</a></td>
-<td>A single labelled OMOP concept for use in higher level semantic annotations</td>
+<td><a href="../OmopSemanticObject/">OmopSemanticObject</a></td>
+<td>Abstract base class for OMOP semantic objects</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../OmopEnum/">OmopEnum</a></td>
+<td>Enumeration (static) of permissible values for a particular slot</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -458,13 +463,8 @@ Alias: class_uri</p>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../OmopSemanticObject/">OmopSemanticObject</a></td>
-<td>Abstract base class for OMOP semantic objects</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../OmopEnum/">OmopEnum</a></td>
-<td>Enumeration (static) of permissible values for a particular slot</td>
+<td><a href="../OmopConcept/">OmopConcept</a></td>
+<td>A single labelled OMOP concept for use in higher level semantic annotations</td>
 <td>yes</td>
 </tr>
 </tbody>
@@ -481,7 +481,7 @@ Alias: class_uri</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://example.org/omop_named_sets</li>
+<li>from schema: https://athena.ohdsi.org/search-terms/terms/omop_profiles</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -494,18 +494,18 @@ Alias: class_uri</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>https://example.org/omop_named_sets/class_uri</td>
+<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/class_uri</td>
 </tr>
 <tr>
 <td>native</td>
-<td>https://example.org/omop_named_sets/class_uri</td>
+<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/class_uri</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">class_uri</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/omop_named_sets</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://athena.ohdsi.org/search-terms/terms/omop_profiles</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">designates_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">class_uri</span>

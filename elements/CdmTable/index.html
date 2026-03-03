@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/DateOrDatetime/">
+        <link rel="canonical" href="https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/CdmTable/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Type: DateOrDatetime - omop-cdm</title>
+        <title>Enum: CdmTable - omop-cdm</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#type-dateordatetime" class="md-skip">
+        <a href="#enum-cdmtable" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Type: DateOrDatetime
+              Enum: CdmTable
             
           </span>
         </div>
@@ -348,6 +348,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#permissible-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissible Values
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slots
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     <span class="md-ellipsis">
       Identifier and Mapping Information
@@ -372,9 +390,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mappings" class="md-nav__link">
+  <a href="#linkml-source" class="md-nav__link">
     <span class="md-ellipsis">
-      Mappings
+      LinkML Source
     </span>
   </a>
   
@@ -400,44 +418,106 @@
   
 
 
-<h1 id="type-dateordatetime">Type: DateOrDatetime</h1>
-<p><em>Either a date or a datetime</em></p>
-<p>URI: <a href="https://w3id.org/linkml/DateOrDatetime">linkml:DateOrDatetime</a></p>
-<ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: str</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: linkml:DateOrDatetime</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
-</li>
-</ul>
+<h1 id="enum-cdmtable">Enum: CdmTable</h1>
+<p><em>OMOP CDM table to which a semantic template applies</em></p>
+<p>URI: <a href="https://athena.ohdsi.org/search-terms/terms/omop_profiles/CdmTable">https://athena.ohdsi.org/search-terms/terms/omop_profiles/CdmTable</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>observation</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>measurement</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>drug_exposure</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>procedure_occurrence</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>condition_occurrence</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>visit_occurrence</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>device_exposure</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>specimen</td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../cdm_table/">cdm_table</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://athena.ohdsi.org/search-terms/terms/omop_profiles</li>
 </ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>linkml:DateOrDatetime</td>
-</tr>
-<tr>
-<td>native</td>
-<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/date_or_datetime</td>
-</tr>
-</tbody>
-</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CdmTable</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OMOP CDM table to which a semantic template applies</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://athena.ohdsi.org/search-terms/terms/omop_profiles</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">permissible_values</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">observation</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">observation</span>
+<span class="w">  </span><span class="nt">measurement</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">measurement</span>
+<span class="w">  </span><span class="nt">drug_exposure</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">drug_exposure</span>
+<span class="w">  </span><span class="nt">procedure_occurrence</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">procedure_occurrence</span>
+<span class="w">  </span><span class="nt">condition_occurrence</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">condition_occurrence</span>
+<span class="w">  </span><span class="nt">visit_occurrence</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">visit_occurrence</span>
+<span class="w">  </span><span class="nt">device_exposure</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">device_exposure</span>
+<span class="w">  </span><span class="nt">specimen</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">specimen</span>
+</code></pre></div>
+</details>
 
 
 

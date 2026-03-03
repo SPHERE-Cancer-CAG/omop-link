@@ -428,7 +428,7 @@
 
 
 <h1 id="slot-name">Slot: name</h1>
-<p>URI: <a href="https://example.org/omop_named_sets/name">https://example.org/omop_named_sets/name</a>
+<p>URI: <a href="https://athena.ohdsi.org/search-terms/terms/omop_profiles/name">https://athena.ohdsi.org/search-terms/terms/omop_profiles/name</a>
 Alias: name</p>
 <!-- no inheritance hierarchy -->
 
@@ -443,23 +443,18 @@ Alias: name</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../OmopGroup/">OmopGroup</a></td>
-<td>Named group of OMOP concepts defined by their membership in a particular grou...</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../CDMSemanticUnits/">CDMSemanticUnits</a></td>
 <td></td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../OmopConcept/">OmopConcept</a></td>
-<td>A single labelled OMOP concept for use in higher level semantic annotations</td>
+<td><a href="../OmopCdmProfile/">OmopCdmProfile</a></td>
+<td></td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../OmopValueSet/">OmopValueSet</a></td>
-<td>A semantic grouping of mixed types of permissible values for a template slot</td>
+<td><a href="../OmopGroup/">OmopGroup</a></td>
+<td>Named group of OMOP concepts defined by their membership in a particular grou...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -470,6 +465,16 @@ Alias: name</p>
 <tr>
 <td><a href="../OmopEnum/">OmopEnum</a></td>
 <td>Enumeration (static) of permissible values for a particular slot</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../OmopValueSet/">OmopValueSet</a></td>
+<td>A semantic grouping of mixed types of permissible values for a template slot</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../OmopConcept/">OmopConcept</a></td>
+<td>A single labelled OMOP concept for use in higher level semantic annotations</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -486,7 +491,7 @@ Alias: name</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://example.org/omop_named_sets</li>
+<li>from schema: https://athena.ohdsi.org/search-terms/terms/omop_profiles</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -499,23 +504,24 @@ Alias: name</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>https://example.org/omop_named_sets/name</td>
+<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/name</td>
 </tr>
 <tr>
 <td>native</td>
-<td>https://example.org/omop_named_sets/name</td>
+<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/name</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/omop_named_sets</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://athena.ohdsi.org/search-terms/terms/omop_profiles</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CDMSemanticUnits</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopCdmProfile</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopSemanticObject</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CDMSemanticUnits</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>

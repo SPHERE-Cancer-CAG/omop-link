@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/DateOrDatetime/">
+        <link rel="canonical" href="https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/value_slot/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Type: DateOrDatetime - omop-cdm</title>
+        <title>Slot: value_slot - omop-cdm</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#type-dateordatetime" class="md-skip">
+        <a href="#slot-value_slot" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Type: DateOrDatetime
+              Slot: value_slot
             
           </span>
         </div>
@@ -348,6 +348,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#applicable-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applicable Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     <span class="md-ellipsis">
       Identifier and Mapping Information
@@ -380,6 +398,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      LinkML Source
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -400,19 +427,31 @@
   
 
 
-<h1 id="type-dateordatetime">Type: DateOrDatetime</h1>
-<p><em>Either a date or a datetime</em></p>
-<p>URI: <a href="https://w3id.org/linkml/DateOrDatetime">linkml:DateOrDatetime</a></p>
+<h1 id="slot-value_slot">Slot: value_slot</h1>
+<p>URI: <a href="https://athena.ohdsi.org/search-terms/terms/omop_profiles/value_slot">https://athena.ohdsi.org/search-terms/terms/omop_profiles/value_slot</a>
+Alias: value_slot</p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Modifies Slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../OmopCdmProfile/">OmopCdmProfile</a></td>
+<td></td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: str</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: linkml:DateOrDatetime</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -430,14 +469,26 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>linkml:DateOrDatetime</td>
+<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/value_slot</td>
 </tr>
 <tr>
 <td>native</td>
-<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/date_or_datetime</td>
+<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/value_slot</td>
 </tr>
 </tbody>
 </table>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value_slot</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://athena.ohdsi.org/search-terms/terms/omop_profiles</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value_slot</span>
+<span class="nt">domain_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopCdmProfile</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+</details>
 
 
 
