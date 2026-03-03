@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/notes/">
+        <link rel="canonical" href="https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/value_concept/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: notes - omop-cdm</title>
+        <title>Slot: value_concept - omop-cdm</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-notes" class="md-skip">
+        <a href="#slot-value_concept" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: notes
+              Slot: value_concept
             
           </span>
         </div>
@@ -427,9 +427,11 @@
   
 
 
-<h1 id="slot-notes">Slot: notes</h1>
-<p>URI: <a href="https://athena.ohdsi.org/search-terms/terms/omop_profiles/notes">https://athena.ohdsi.org/search-terms/terms/omop_profiles/notes</a>
-Alias: notes</p>
+<h1 id="slot-value_concept">Slot: value_concept</h1>
+<p><em>Group of permissible values for value slots (e.g. value_as_concept_id).</em></p>
+<p>__</p>
+<p>URI: <a href="https://athena.ohdsi.org/search-terms/terms/omop_profiles/value_concept">https://athena.ohdsi.org/search-terms/terms/omop_profiles/value_concept</a>
+Alias: value_concept</p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -443,31 +445,6 @@ Alias: notes</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../OmopSemanticObject/">OmopSemanticObject</a></td>
-<td>Abstract base class for OMOP semantic objects</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../OmopValueSet/">OmopValueSet</a></td>
-<td>A semantic grouping of mixed types of permissible values for a template slot</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../OmopEnum/">OmopEnum</a></td>
-<td>Enumeration (static) of permissible values for a particular slot</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../OmopConcept/">OmopConcept</a></td>
-<td>A single labelled OMOP concept for use in higher level semantic annotations</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../OmopGroup/">OmopGroup</a></td>
-<td>Named group of OMOP concepts defined by their membership in a particular grou...</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../OmopTemplate/">OmopTemplate</a></td>
 <td>A compositional semantic template describing how one or more OMOP concepts ar...</td>
 <td>no</td>
@@ -476,7 +453,7 @@ Alias: notes</p>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../OmopSemanticObject/">OmopSemanticObject</a>&nbsp;or&nbsp;<br /><a href="../OmopGroup/">OmopGroup</a>&nbsp;or&nbsp;<br /><a href="../OmopEnum/">OmopEnum</a>&nbsp;or&nbsp;<br /><a href="../OmopConcept/">OmopConcept</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -494,25 +471,30 @@ Alias: notes</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/notes</td>
+<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/value_concept</td>
 </tr>
 <tr>
 <td>native</td>
-<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/notes</td>
+<td>https://athena.ohdsi.org/search-terms/terms/omop_profiles/value_concept</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notes</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value_concept</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Group</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">permissible</span><span class="nv"> </span><span class="s">values</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">slots</span><span class="nv"> </span><span class="s">(e.g.</span><span class="nv"> </span><span class="s">value_as_concept_id).</span>
+
+<span class="w">  </span><span class="s">&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://athena.ohdsi.org/search-terms/terms/omop_profiles</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notes</span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value_concept</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopSemanticObject</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopTemplate</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopSemanticObject</span>
+<span class="nt">any_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopGroup</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopEnum</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OmopConcept</span>
 </code></pre></div>
 </details>
 

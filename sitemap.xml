@@ -113,6 +113,14 @@
          <lastmod>2026-03-03</lastmod>
     </url>
     <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/OmopTemplate/</loc>
+         <lastmod>2026-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/OmopTemplates/</loc>
+         <lastmod>2026-03-03</lastmod>
+    </url>
+    <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/OmopValueSet/</loc>
          <lastmod>2026-03-03</lastmod>
     </url>
@@ -137,6 +145,10 @@
          <lastmod>2026-03-03</lastmod>
     </url>
     <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/cdm_profile/</loc>
+         <lastmod>2026-03-03</lastmod>
+    </url>
+    <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/cdm_table/</loc>
          <lastmod>2026-03-03</lastmod>
     </url>
@@ -150,6 +162,10 @@
     </url>
     <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/concept_slot/</loc>
+         <lastmod>2026-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/entity_concept/</loc>
          <lastmod>2026-03-03</lastmod>
     </url>
     <url>
@@ -198,6 +214,18 @@
     </url>
     <url>
          <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/profiles/</loc>
+         <lastmod>2026-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/role/</loc>
+         <lastmod>2026-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/templates/</loc>
+         <lastmod>2026-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://SPHERE-Cancer-CAG.github.io/omop-cdm/elements/value_concept/</loc>
          <lastmod>2026-03-03</lastmod>
     </url>
     <url>
