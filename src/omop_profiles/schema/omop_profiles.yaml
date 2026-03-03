@@ -18,10 +18,16 @@ prefixes:
 
 classes:
   CDMProfiles:
+    description: >
+      A collection of OMOP CDM profiles describing the permissible semantic structures for populating the CDM.
     slots:
       - profiles
     tree_root: true
   OmopCdmProfile:
+    description: >
+      A compositional profile describing how a particular clinical endpoint is represented in the CDM. 
+      This defines where concepts and values for a particular endpoint (e.g. blood pressure measurement)
+      are represented in a particular CDM table (e.g. observation/value_as_number, measurement/measurement_concept_id).
     slots:
       - name
       - cdm_table

@@ -14,12 +14,18 @@ classes:
       - valuesets
     description: >
       A collection of value sets used for defining permissible values for template slots in the OMOP CDM.
-      This is intended to be used as a registry of value sets that can be referenced in template definitions.
   CDMValueSet:
+    description: >
+      A labelled value set defining a set of permissible values for a particular template slot in the OMOP CDM.
+      This is the grouper class through which you may bring together a combination of lower level semantic objects
+      (individual concepts, hierarchical groups, or enumerations) to span the set of permissible values for a template slot.
     slots:
       - valueset_name
       - valueset_members
   CDMSemanticUnits:
+    description: >
+      A collection of named semantic units used for defining permissible values for template slots in the OMOP CDM.
+      This is intended to be used as a registry of labelled units that can be referenced in template definitions.
     slots:
       - name
       - named_enumerators

@@ -1,5 +1,5 @@
 # Auto generated from omop_profiles.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-03T13:42:50
+# Generation date: 2026-03-03T13:48:21
 # Schema: omop_profiles
 #
 # id: https://athena.ohdsi.org/search-terms/terms/omop_profiles
@@ -76,6 +76,9 @@ DEFAULT_ = CurieNamespace('', 'https://athena.ohdsi.org/search-terms/terms/omop_
 
 @dataclass(repr=False)
 class CDMProfiles(YAMLRoot):
+    """
+    A collection of OMOP CDM profiles describing the permissible semantic structures for populating the CDM.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = OMOP["omop_profiles/CDMProfiles"]
@@ -93,6 +96,11 @@ class CDMProfiles(YAMLRoot):
 
 @dataclass(repr=False)
 class OmopCdmProfile(YAMLRoot):
+    """
+    A compositional profile describing how a particular clinical endpoint is represented in the CDM. This defines
+    where concepts and values for a particular endpoint (e.g. blood pressure measurement) are represented in a
+    particular CDM table (e.g. observation/value_as_number, measurement/measurement_concept_id).
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = OMOP["omop_profiles/OmopCdmProfile"]
@@ -341,8 +349,7 @@ class Concept(YAMLRoot):
 @dataclass(repr=False)
 class CDMValueSets(YAMLRoot):
     """
-    A collection of value sets used for defining permissible values for template slots in the OMOP CDM. This is
-    intended to be used as a registry of value sets that can be referenced in template definitions.
+    A collection of value sets used for defining permissible values for template slots in the OMOP CDM.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -363,6 +370,11 @@ class CDMValueSets(YAMLRoot):
 
 @dataclass(repr=False)
 class CDMValueSet(YAMLRoot):
+    """
+    A labelled value set defining a set of permissible values for a particular template slot in the OMOP CDM. This is
+    the grouper class through which you may bring together a combination of lower level semantic objects (individual
+    concepts, hierarchical groups, or enumerations) to span the set of permissible values for a template slot.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = OMOP["omop_named_sets/CDMValueSet"]
@@ -388,6 +400,10 @@ class CDMValueSet(YAMLRoot):
 
 @dataclass(repr=False)
 class CDMSemanticUnits(YAMLRoot):
+    """
+    A collection of named semantic units used for defining permissible values for template slots in the OMOP CDM. This
+    is intended to be used as a registry of labelled units that can be referenced in template definitions.
+    """
     _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = OMOP["omop_named_sets/CDMSemanticUnits"]

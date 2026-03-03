@@ -213,7 +213,7 @@ class Concept(ConfiguredBaseModel):
 
 class CDMValueSets(ConfiguredBaseModel):
     """
-    A collection of value sets used for defining permissible values for template slots in the OMOP CDM. This is intended to be used as a registry of value sets that can be referenced in template definitions.
+    A collection of value sets used for defining permissible values for template slots in the OMOP CDM.
 
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_named_sets'})
@@ -222,6 +222,10 @@ class CDMValueSets(ConfiguredBaseModel):
 
 
 class CDMValueSet(ConfiguredBaseModel):
+    """
+    A labelled value set defining a set of permissible values for a particular template slot in the OMOP CDM. This is the grouper class through which you may bring together a combination of lower level semantic objects (individual concepts, hierarchical groups, or enumerations) to span the set of permissible values for a template slot.
+
+    """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_named_sets'})
 
     valueset_name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'valueset_name', 'domain_of': ['CDMValueSet']} })
@@ -229,6 +233,10 @@ class CDMValueSet(ConfiguredBaseModel):
 
 
 class CDMSemanticUnits(ConfiguredBaseModel):
+    """
+    A collection of named semantic units used for defining permissible values for template slots in the OMOP CDM. This is intended to be used as a registry of labelled units that can be referenced in template definitions.
+
+    """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_named_sets'})
 
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
@@ -282,6 +290,10 @@ class OmopTemplate(ConfiguredBaseModel):
 
 
 class CDMProfiles(ConfiguredBaseModel):
+    """
+    A collection of OMOP CDM profiles describing the permissible semantic structures for populating the CDM.
+
+    """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_profiles',
          'tree_root': True})
 
@@ -289,6 +301,10 @@ class CDMProfiles(ConfiguredBaseModel):
 
 
 class OmopCdmProfile(ConfiguredBaseModel):
+    """
+    A compositional profile describing how a particular clinical endpoint is represented in the CDM.  This defines where concepts and values for a particular endpoint (e.g. blood pressure measurement) are represented in a particular CDM table (e.g. observation/value_as_number, measurement/measurement_concept_id).
+
+    """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://athena.ohdsi.org/search-terms/terms/omop_profiles'})
 
     name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name',
