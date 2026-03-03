@@ -8,7 +8,7 @@ description: >
   can be used to populate the CDM, such as EAV form, or direct concept identifier slots. 
 
 imports:
-  - omop_base
+  - omop_semantic_base
 
 classes:
   CDMProfiles:
